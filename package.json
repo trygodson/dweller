@@ -3,16 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "chart.js": "^2.9.4",
+    "faker": "^5.5.3",
+    "formik": "^2.2.9",
+    "framer-motion": "^6.3.16",
+    "node-sass": "^7.0.1",
+    "react": "^17.0.2",
+    "react-animations": "^1.0.0",
+    "react-chartjs-2": "^2.11.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.4.0",
+    "react-query": "3.18",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.53.0",
+    "styled-components": "^5.3.3",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "build:css": "tailwind -i src/index.css -o public/style.css",
+    "start": " react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -22,6 +37,12 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.2",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.4"
   },
   "browserslist": {
     "production": [
