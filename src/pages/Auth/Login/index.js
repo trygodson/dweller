@@ -42,6 +42,7 @@ const Login = (props) => {
       username,
       password,
     };
+    push('/app/dashboard');
 
     //   try {
     //     const response = await Login(payload);
