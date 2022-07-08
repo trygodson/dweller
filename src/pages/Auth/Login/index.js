@@ -30,7 +30,7 @@ const getFormProps = () => {
   };
 };
 
-const Login = props => {
+const Login = (props) => {
   const [act, setAccount] = useState('');
   const { push } = useHistory();
 
@@ -92,7 +92,7 @@ const Login = props => {
   return (
     <>
       <div className="flex w-full h-screen">
-        <div className="flex relative justify-center items-center w-3/5 bg-blue-900">
+        <div className="flex relative justify-center items-center w-3/5 bg-appcolor-900">
           <div
             className={`absolute w-full h-full bg-no-repeat bg-cover`}
             style={{
@@ -102,9 +102,11 @@ const Login = props => {
               opacity: 0.4,
             }}
           ></div>
-          <div className=" w-3/5 h-5/6 ">
+          <div className=" w-3/5 h-5/6 " style={{ width: '70%' }}>
             <div className="flex justify-between items-center">
-              <div className="rounded-full w-16 h-16 bg-lime-600"></div>
+              <div className="rounded-full w-16 h-16 bg-teal-500 flex justify-center items-center">
+                <i className="fi fi-rr-quote-right text-3xl text-white"></i>
+              </div>
             </div>
             <div>
               <span className="text-9xl font-extrabold text-white">Make a Dream.</span>
@@ -143,9 +145,9 @@ const Login = props => {
                 {({ isSubmitting, isValid }) => (
                   <>
                     <div className="text-center">
-                      <div className="mb-2">
+                      <div className="">
                         <div className="flex justify-center">
-                          <img src={logo} className="w-40" />
+                          <img src={logo} className="w-52" />
                         </div>
                         <div>
                           <span></span>

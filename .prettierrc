@@ -5,6 +5,9 @@
   "trailingComma": "all",
   "bracketSpacing": true,
   "useTabs": false,
-  "arrowParens": "avoid",
-  "endOfLine": "auto"
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "quoteProps": "preserve",
+  "embeddedLanguageFormatting": "auto"
+  
 }

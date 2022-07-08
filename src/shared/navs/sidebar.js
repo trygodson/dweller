@@ -44,13 +44,13 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
     },
   };
 
-  const filteredList = menuItems => {
+  const filteredList = (menuItems) => {
     const permission = user.permission;
 
     if (permission) {
       return menuItems.filter(
-        x =>
-          (x.permissions && permission.some(r => x.permissions.indexOf(r) >= 0)) ||
+        (x) =>
+          (x.permissions && permission.some((r) => x.permissions.indexOf(r) >= 0)) ||
           !x.permissions ||
           x.permissions?.length === 0,
       );
@@ -70,7 +70,7 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
           damping: 10,
         },
       }}
-      className={`sidebar `}
+      className={`sidebar bg-appcolor-900`}
     >
       <div className="top_section flex justify-end">
         <div className="bars">
@@ -98,7 +98,7 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
             <motion.h3 className="text-base font-bold m-2 mt-4 text-gray-500">PAYMENTS</motion.h3>
           )}
         </AnimatePresence>
-        {filteredList(MenuList).map(x => {
+        {filteredList(MenuList).map((x) => {
           var node;
           var sub_node;
           if (x.subs == undefined || x.subs.length == 0) {
@@ -123,7 +123,7 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
               );
             }
           } else {
-            sub_node = filteredList(x.subs).map(s => (
+            sub_node = filteredList(x.subs).map((s) => (
               <NavLink to={s.to} className="link" activeClassName="active">
                 {/* <div className="icon">{page.icon}</div> */}
                 <AnimatePresence>
@@ -154,7 +154,7 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
             <motion.h3 className="text-base font-bold m-2 text-gray-500">NOTIFICATIONS</motion.h3>
           )}
         </AnimatePresence>
-        {filteredList(MenuList).map(x => {
+        {filteredList(MenuList).map((x) => {
           var node;
           var sub_node;
           if (x.subs == undefined || x.subs.length == 0) {
@@ -179,7 +179,7 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
               );
             }
           } else {
-            sub_node = filteredList(x.subs).map(s => (
+            sub_node = filteredList(x.subs).map((s) => (
               <NavLink to={s.to} className="link" activeClassName="active">
                 {/* <div className="icon">{page.icon}</div> */}
                 <AnimatePresence>

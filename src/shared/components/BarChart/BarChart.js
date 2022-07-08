@@ -49,26 +49,7 @@ export const options = {
   },
 };
 
-const labels = [
-  'J',
-  'F',
-  'M',
-  'A',
-  'M',
-  'J',
-  'J',
-  'A',
-  'S',
-  'O',
-  'N',
-  'D',
-  'J',
-  'A',
-  'S',
-  'O',
-  'N',
-  'D',
-];
+const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
 
 export const data = {
   labels,
@@ -77,17 +58,18 @@ export const data = {
     {
       label: 'Purchased',
       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: '#156bbb',
+      backgroundColor: 'rgb(45 212 191)',
       borderWidth: 2,
-      barThickness: 6,
+      barThickness: 40,
+      hoverBackgroundColor: 'rgb(15 118 110)',
     },
-    {
-      label: 'Sales',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: '#052053',
-      borderWidth: 2,
-      barThickness: 6,
-    },
+    // {
+    //   label: 'Sales',
+    //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+    //   backgroundColor: '#052053',
+    //   borderWidth: 2,
+    //   barThickness: 22,
+    // },
   ],
 };
 

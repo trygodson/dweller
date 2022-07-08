@@ -25,10 +25,10 @@ const getFormProps = () => {
   };
 };
 
-const Register = props => {
+const Register = (props) => {
   const [act, setAccount] = useState('');
   const { push } = useHistory();
-  const handleSubmit = async values => {
+  const handleSubmit = async (values) => {
     const { email, password } = values;
     const payload = {
       username: email,
@@ -66,9 +66,11 @@ const Register = props => {
               opacity: 0.4,
             }}
           ></div>
-          <div className=" w-3/5 h-5/6 ">
+          <div className=" w-3/5 h-5/6 " style={{ width: '70%' }}>
             <div className="flex justify-between items-center">
-              <div className="rounded-full w-16 h-16 bg-lime-600"></div>
+              <div className="rounded-full w-16 h-16 bg-teal-500 flex justify-center items-center">
+                <i className="fi fi-rr-quote-right text-3xl text-white"></i>
+              </div>
             </div>
             <div>
               <span className="text-9xl font-extrabold text-white">Make a Dream.</span>
