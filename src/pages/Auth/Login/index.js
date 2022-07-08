@@ -42,7 +42,7 @@ const Login = (props) => {
       username,
       password,
     };
-    push('/app/dashboard');
+    push('/app/profile-form');
 
     //   try {
     //     const response = await Login(payload);

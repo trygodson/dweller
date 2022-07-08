@@ -1,11 +1,17 @@
+import { useHistory } from 'react-router-dom';
 import InputField from '../../shared/components/customforminput';
 
 const ProfileForm = () => {
+  const { push } = useHistory();
+  const onSubmit = () => {
+    push('/app/dashboard');
+  };
+
   return (
     <main className="w-full min-h-screen">
       <div className="mx-auto mt-8 w-3/5">
         <div className="w-full mt-3 text-center">
-          <h3 className="text-base font-bold">Profile Form</h3>
+          <h3 className="text-xl font-bold">Profile Form</h3>
         </div>
         <div className="px-8 py-8 bg-white my-8 shadow-md rounded-md ">
           <div className="my-1">
@@ -31,6 +37,15 @@ const ProfileForm = () => {
           </div>
           <div className="my-1">
             <InputField inputType="textarea" type="text" label={'Addresses'} placeholder=".." />
+          </div>
+
+          <div className="px-2 mt-8">
+            <button
+              className="outline-none border-none w-full text-white text-lg font-bold rounded text-center h-10 bg-appcolor-500 hover:bg-appcolor-900"
+              onClick={onSubmit}
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
