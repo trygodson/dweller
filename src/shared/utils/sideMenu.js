@@ -11,25 +11,80 @@ export const MenuList = [
     bottom: false,
   },
   {
-    id: 'properties',
-    label: 'Payouts',
+    id: 'collection',
+    label: 'Collection',
     to: '/app/properties',
     icon: <i className="fi fi-rr-layout-fluid text-xl"></i>,
     bottom: false,
+    subs: [
+      {
+        id: 'mycollection',
+        label: 'My Collection',
+        to: '/djjnj',
+        // permissions: [userPermissions.Hr, userPermissions.Admin],
+      },
+      {
+        id: 'offline',
+        label: 'Offline',
+        to: '/djhn',
+        // permissions: [userPermissions.Hr, userPermissions.Admin],
+      },
+      {
+        id: 'validate',
+        label: 'Validate Txn',
+        to: '/djhn',
+        // permissions: [userPermissions.Hr, userPermissions.Admin],
+      },
+      {
+        id: 'history',
+        label: 'History',
+        to: '/djhn',
+        // permissions: [userPermissions.Hr, userPermissions.Admin],
+      },
+    ],
   },
   {
-    id: 'properties',
-    label: 'Refunds',
+    id: 'community',
+    label: 'Community',
+    to: '/app/properties',
+    icon: <i className="fi fi-rr-box text-xl"></i>,
+    bottom: false,
+    subs: [
+      {
+        id: 'adddwellers',
+        label: 'Add Dwellers',
+        to: '/djjnj',
+        // permissions: [userPermissions.Hr, userPermissions.Admin],
+      },
+    ],
+  },
+  {
+    id: 'notification',
+    label: 'Notification',
     to: '/app/properties',
     icon: <i className="fi fi-rr-box text-xl"></i>,
     bottom: false,
   },
   {
-    id: 'properties',
-    label: 'APIs',
-    to: '/app/properties',
+    id: 'payapi',
+    label: 'Pay APIs',
+    to: '/jjjn',
     icon: <i className="fi fi-rr-apps-sort text-xl"></i>,
     bottom: true,
+    subs: [
+      {
+        id: 'documentation',
+        label: 'Documentation',
+        to: '/djjnj',
+        // permissions: [userPermissions.Hr, userPermissions.Admin],
+      },
+      {
+        id: 'apikeys',
+        label: 'API Keys',
+        to: '/djhn',
+        // permissions: [userPermissions.Hr, userPermissions.Admin],
+      },
+    ],
   },
 
   // {

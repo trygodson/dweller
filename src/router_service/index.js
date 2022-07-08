@@ -4,6 +4,8 @@ import { lazy } from 'react';
 const DwellerPayDashboard = lazy(() => import('../pages/MainPage/dashboard/dwellerpay'));
 const AdminDashboard = lazy(() => import('../pages/MainPage/dashboard/Admin'));
 const MyProperties = lazy(() => import('../pages/MainPage/properties/Admin/MyProperties'));
+const ProfileForm = lazy(() => import('../pages/profile/index'));
+
 export default [
   // {
   //   path: 'dashboard',
@@ -17,11 +19,11 @@ export default [
     path: 'properties',
     component: MyProperties,
   },
-  // {
-  //   path: "test",
-  //   component: Test,
-  //   permission: [],
-  // },
+  {
+    path: 'profile-form',
+    component: ProfileForm,
+    // permission: [],
+  },
   // {
   //   path: "add-employee",
   //   component: EmployeeSearch,

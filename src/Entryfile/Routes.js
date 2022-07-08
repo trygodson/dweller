@@ -3,6 +3,7 @@ import { lazy } from 'react';
 const Login = lazy(() => import('../pages/Auth/Login/index'));
 const Register = lazy(() => import('../pages/Auth/Register/index'));
 const Otp = lazy(() => import('../pages/Auth/otp/index'));
+const ProfileForm = lazy(() => import('../pages/profile/index'));
 // const ForgotPassword = lazy(() => import("../pages/Auth/ForgotPassword"));
 // const OTP = lazy(() => import("../pages/Auth/VerifyOtp"));
 const DefaultLayout = lazy(() => import('../shared/navs/DefaultLayout'));
@@ -25,11 +26,11 @@ const routes = [
     component: Otp,
     guarded: false,
   },
-  // {
-  //   path: "/forget-password",
-  //   component: ForgotPassword,
-  //   guarded: false,
-  // },
+  {
+    path: '/profile-form',
+    component: ProfileForm,
+    guarded: false,
+  },
   // {
   //   path: "/verify-otp",
   //   component: OTP,

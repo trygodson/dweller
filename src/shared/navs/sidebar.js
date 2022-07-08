@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter, useLocation } from 'react-router-dom';
 import { MenuList } from '../../shared/utils/sideMenu';
 import { useAuthState } from './../../shared/context/useAuthContext';
 import './sidebar.scss';
@@ -10,6 +10,11 @@ import { logowhite } from '../../Entryfile/imagepath';
 
 const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
   const { user } = useAuthState();
+  const location = useLocation();
+  const { pathname } = location;
+
+  const splitLocation = pathname.split('/');
+
   const inputAnimation = {
     hidden: {
       width: 0,
@@ -43,7 +48,26 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
       },
     },
   };
+  const dropdownAnimation = {
+    hidden: {
+      width: 'auto',
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    show: {
+      width: 'auto',
 
+      opacity: 1,
+      height: 'auto',
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+  console.log(splitLocation);
   const filteredList = (menuItems) => {
     const permission = user.permission;
 
@@ -101,49 +125,58 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
         {filteredList(MenuList).map((x) => {
           var node;
           var sub_node;
-          if (x.subs == undefined || x.subs.length == 0) {
-            if (x.bottom == false) {
-              return (
-                <NavLink to={x.to} className="link my-1" activeClassName="active">
-                  {x.icon}
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        variants={showAnimation}
-                        initial="hidden"
-                        animate="show"
-                        exit="hidden"
-                        className="link_text font-semibold"
-                      >
-                        {x.label}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </NavLink>
-              );
-            }
-          } else {
-            sub_node = filteredList(x.subs).map((s) => (
-              <NavLink to={s.to} className="link" activeClassName="active">
-                {/* <div className="icon">{page.icon}</div> */}
+
+          if (x.bottom == false) {
+            return (
+              <motion.div>
                 <AnimatePresence>
-                  {isOpen && (
+                  <motion.div>
                     <motion.div
-                      variants={showAnimation}
-                      initial="hidden"
-                      animate="show"
-                      exit="hidden"
-                      className="link_text"
+                      className={`link flex justify-between ${
+                        `/${splitLocation[1]}/${splitLocation[2]}` == x.to && `active`
+                      }`}
                     >
-                      {s.label}
+                      <NavLink key={x.to} to={x.to} className="flex my-1" activeClassName="">
+                        {x.icon}
+                        {isOpen && (
+                          <motion.div
+                            variants={showAnimation}
+                            initial="hidden"
+                            animate="show"
+                            exit="hidden"
+                            className="text-base ml-2 border-0 font-semibold"
+                          >
+                            {x.label}
+                          </motion.div>
+                        )}
+                      </NavLink>
+                      {isOpen && <motion.i className="fi fi-rr-angle-small-down text-lg" />}
                     </motion.div>
-                  )}
+                    {x.subs != undefined &&
+                      x.subs.length > 0 &&
+                      isOpen &&
+                      filteredList(x.subs).map((s) => {
+                        return (
+                          <NavLink key={s.to} to={s.to} className="link" activeClassName="active">
+                            {/* <div className="icon">{page.icon}</div> */}
+                            <AnimatePresence>
+                              <motion.div
+                                variants={dropdownAnimation}
+                                initial="hidden"
+                                animate="show"
+                                exit="hidden"
+                                className="link_text "
+                              >
+                                {s.label}
+                              </motion.div>
+                            </AnimatePresence>
+                          </NavLink>
+                        );
+                      })}
+                  </motion.div>
                 </AnimatePresence>
-              </NavLink>
-            ));
-            // if (sub_node.length > 0)
-            //   return <SubMenu title={x.label}>{sub_node}</SubMenu>;
-            // else return <></>;
+              </motion.div>
+            );
           }
         })}
       </section>
@@ -151,56 +184,61 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
         <AnimatePresence>{!isOpen && <motion.div className="h-6"></motion.div>}</AnimatePresence>
         <AnimatePresence>
           {isOpen && (
-            <motion.h3 className="text-base font-bold m-2 text-gray-500">NOTIFICATIONS</motion.h3>
+            <motion.h3 className="text-base font-bold m-2 text-gray-500">SERVICES</motion.h3>
           )}
         </AnimatePresence>
         {filteredList(MenuList).map((x) => {
           var node;
           var sub_node;
-          if (x.subs == undefined || x.subs.length == 0) {
-            if (x.bottom == true) {
-              return (
-                <NavLink to={x.to} className="link my-1" activeClassName="active">
-                  {x.icon}
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        variants={showAnimation}
-                        initial="hidden"
-                        animate="show"
-                        exit="hidden"
-                        className="link_text text-semibold"
-                      >
-                        {x.label}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </NavLink>
-              );
-            }
-          } else {
-            sub_node = filteredList(x.subs).map((s) => (
-              <NavLink to={s.to} className="link" activeClassName="active">
-                {/* <div className="icon">{page.icon}</div> */}
+          if (x.bottom == true) {
+            return (
+              <motion.div>
                 <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      variants={showAnimation}
-                      initial="hidden"
-                      animate="show"
-                      exit="hidden"
-                      className="link_text"
-                    >
-                      {s.label}
-                    </motion.div>
-                  )}
+                  <motion.div>
+                    <NavLink key={x.to} to={x.to} className="link my-1" activeClassName="active">
+                      {x.icon}
+                      {isOpen && (
+                        <motion.div
+                          variants={showAnimation}
+                          initial="hidden"
+                          animate="show"
+                          exit="hidden"
+                          className="link_text font-semibold"
+                        >
+                          {x.label}
+                        </motion.div>
+                      )}
+                    </NavLink>
+                    {x.subs != undefined &&
+                      x.subs.length > 0 &&
+                      filteredList(x.subs).map((s) => {
+                        if (isOpen) {
+                          return (
+                            <NavLink key={s.to} to={s.to} className="link" activeClassName="active">
+                              {/* <div className="icon">{page.icon}</div> */}
+                              <AnimatePresence>
+                                <motion.div
+                                  variants={dropdownAnimation}
+                                  initial="hidden"
+                                  animate="show"
+                                  exit="hidden"
+                                  className="link_text "
+                                >
+                                  {s.label}
+                                </motion.div>
+                              </AnimatePresence>
+                            </NavLink>
+                          );
+                        }
+                      })}
+                  </motion.div>
                 </AnimatePresence>
-              </NavLink>
-            ));
-            // if (sub_node.length > 0)
-            //   return <SubMenu title={x.label}>{sub_node}</SubMenu>;
-            // else return <></>;
+              </motion.div>
+            );
           }
+          // if (sub_node.length > 0)
+          //   return <SubMenu title={x.label}>{sub_node}</SubMenu>;
+          // else return <></>;
         })}
       </section>
     </motion.div>
