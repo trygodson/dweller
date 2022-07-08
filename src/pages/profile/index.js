@@ -30,7 +30,7 @@ const ProfileForm = () => {
             <InputField inputType="input" type="text" label={'LGA'} placeholder=".." />
           </div>
           <div className="my-1">
-            <InputField inputType="textarea" type="text" label={'Address'} placeholder=".." />
+            <InputField inputType="textarea" type="text" label={'Addresses'} placeholder=".." />
           </div>
         </div>
       </div>
