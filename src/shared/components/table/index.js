@@ -3,8 +3,8 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/display-name */
-import React, { useCallback, useMemo, useRef, useState } from "react";
-import LoadingOverlay from "react-loading-overlay";
+import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { RotatingSquare } from 'react-loader-spinner';
 import {
   Button,
   Card,
@@ -20,13 +20,13 @@ import {
   ModalHeader,
   Row,
   UncontrolledDropdown,
-} from "reactstrap";
-import Table from "reactstrap/lib/Table";
-import { Colxx } from "../../components/custom-boostrap";
-import MaterialTable from "./material_table";
-const theme = "light";
+} from 'reactstrap';
+import Table from 'reactstrap/lib/Table';
+import { Colxx } from '../../components/custom-boostrap';
+import MaterialTable from './material_table';
+const theme = 'light';
 const TTable = ({
-  title = "Table",
+  title = 'Table',
   column = [],
   divided = false,
   defaultPageSize = 10,
@@ -61,8 +61,8 @@ const TTable = ({
   handleViewMore,
   handleAddNew,
   handleShowStat,
-  addNewText = "Add New",
-  idAccessor = "id",
+  addNewText = 'Add New',
+  idAccessor = 'id',
   useBreadcromb = true,
   refreshRef,
   ...props
@@ -78,9 +78,7 @@ const TTable = ({
   const [orderOptions, setOrderOptions] = useState(orderItems);
   const [selectedOrderOption, setSelectedOrderOption] = useState(selectedOrder);
   const [filterOptions, setFilterOptions] = useState(filterItems);
-  const [selectedFilterOption, setSelectedFilterOption] = useState(
-    selectedFilter
-  );
+  const [selectedFilterOption, setSelectedFilterOption] = useState(selectedFilter);
   const [viewData, setViewData] = useState({});
   const fetchData = useCallback(async ({ pageSize, pageIndex }) => {
     const fetchId = ++fetchIdRef.current;
@@ -154,223 +152,191 @@ const TTable = ({
     setStatModal(true);
   };
   return (
-    <LoadingOverlay
-      active={isLoading}
-      spinner
-      text={"..Loading data Please wait..."}
-      styles={{
-        overlay: (base) => ({
-          ...base,
-          background:
-            theme === "dark"
-              ? "rgba(0, 0, 0, 0.7)"
-              : "rgba(255, 255, 255, 0.7)",
-        }),
-        content: (base) => ({
-          ...base,
-          color:
-            theme === "dark" ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)",
-        }),
-        spinner: (base) => ({
-          ...base,
-          width: "100px",
-          "& svg circle": {
-            stroke: "#1d477a",
-          },
-        }),
-      }}
-    >
-      <Card className="mb-4">
-        <CardBody>
-          <CardTitle>
-            <Row>
-              <Colxx xxs="12">
-                <div className="d-block d-md-inline-block pt-1">
-                  <h1>{title}</h1>
-
-                </div>
-                {showAdd && (
-                  <div className="float-md-right pt-1">
-                    <Button
-                      color="primary"
-                      className="mb-2"
-                      onClick={handleAddNew}
-                    >
-                      {addNewText}
-                    </Button>
-                  </div>
-                )}
-              </Colxx>
-              
-            </Row>
-            {(showOrderBy || showFilterBy || showRefresh) && (
-              <Row>
-                <Colxx xxs="12">
-                  <div>
-                    <Button
-                      color="empty"
-                      className="pt-0 pl-0 d-inline-block d-md-none"
-                      onClick={() =>
-                        setDisplayOptionsIsOpen(!displayOptionsIsOpen)
-                      }
-                    >
-                      Menu
-                      <i className="simple-icon-arrow-down align-middle" />
-                    </Button>
-                    <Collapse
-                      isOpen={displayOptionsIsOpen}
-                      className="d-md-block"
-                      id="displayOptions"
-                    >
-                      {showOrderBy && (
-                        <div className="d-block d-md-inline-block pt-1">
-                          <UncontrolledDropdown className="mr-1 float-md-left btn-group mb-1">
-                            <DropdownToggle
-                              caret
-                              color="outline-dark"
-                              size="xs"
-                            >
-                              orderby:&nbsp;
-                              {selectedOrderOption.label}
-                            </DropdownToggle>
-                            <DropdownMenu>
-                              {orderOptions.map((order, index) => {
-                                return (
-                                  <DropdownItem
-                                    key={index}
-                                    onClick={() => handleOrderBy(order)}
-                                  >
-                                    {order.label}
-                                  </DropdownItem>
-                                );
-                              })}
-                            </DropdownMenu>
-                          </UncontrolledDropdown>
-                        </div>
-                      )}
-                      {showFilterBy && (
-                        <div className="d-block d-md-inline-block pt-1">
-                          <UncontrolledDropdown className="mr-1 float-md-left btn-group mb-1">
-                            <DropdownToggle
-                              caret
-                              color="outline-dark"
-                              size="xs"
-                            >
-                              filterby:&nbsp;
-                              {selectedFilterOption.label}
-                            </DropdownToggle>
-                            <DropdownMenu
-                              modifiers={{
-                                setMaxHeight: {
-                                  enabled: true,
-                                  order: 890,
-                                  fn: (data) => {
-                                    return {
-                                      ...data,
-                                      styles: {
-                                        ...data.styles,
-                                        overflow: "auto",
-                                        maxHeight: "100px",
+    <div style={{ width: 'auto', height: 'auto' }}>
+      {isLoading ? (
+        <div className="w-full h-full flex justify-center items-center">
+          <div>
+            <RotatingSquare width="100" />
+          </div>
+        </div>
+      ) : (
+        <>
+          <Card className="mb-4">
+            <CardBody>
+              <CardTitle>
+                <Row>
+                  <Colxx xxs="12">
+                    <div className="d-block d-md-inline-block pt-1">
+                      <h1>{title}</h1>
+                    </div>
+                    {showAdd && (
+                      <div className="float-md-right pt-1">
+                        <Button color="primary" className="mb-2" onClick={handleAddNew}>
+                          {addNewText}
+                        </Button>
+                      </div>
+                    )}
+                  </Colxx>
+                </Row>
+                {(showOrderBy || showFilterBy || showRefresh) && (
+                  <Row>
+                    <Colxx xxs="12">
+                      <div>
+                        <Button
+                          color="empty"
+                          className="pt-0 pl-0 d-inline-block d-md-none"
+                          onClick={() => setDisplayOptionsIsOpen(!displayOptionsIsOpen)}
+                        >
+                          Menu
+                          <i className="simple-icon-arrow-down align-middle" />
+                        </Button>
+                        <Collapse
+                          isOpen={displayOptionsIsOpen}
+                          className="d-md-block"
+                          id="displayOptions"
+                        >
+                          {showOrderBy && (
+                            <div className="d-block d-md-inline-block pt-1">
+                              <UncontrolledDropdown className="mr-1 float-md-left btn-group mb-1">
+                                <DropdownToggle caret color="outline-dark" size="xs">
+                                  orderby:&nbsp;
+                                  {selectedOrderOption.label}
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                  {orderOptions.map((order, index) => {
+                                    return (
+                                      <DropdownItem
+                                        key={index}
+                                        onClick={() => handleOrderBy(order)}
+                                      >
+                                        {order.label}
+                                      </DropdownItem>
+                                    );
+                                  })}
+                                </DropdownMenu>
+                              </UncontrolledDropdown>
+                            </div>
+                          )}
+                          {showFilterBy && (
+                            <div className="d-block d-md-inline-block pt-1">
+                              <UncontrolledDropdown className="mr-1 float-md-left btn-group mb-1">
+                                <DropdownToggle caret color="outline-dark" size="xs">
+                                  filterby:&nbsp;
+                                  {selectedFilterOption.label}
+                                </DropdownToggle>
+                                <DropdownMenu
+                                  modifiers={{
+                                    setMaxHeight: {
+                                      enabled: true,
+                                      order: 890,
+                                      fn: (data) => {
+                                        return {
+                                          ...data,
+                                          styles: {
+                                            ...data.styles,
+                                            overflow: 'auto',
+                                            maxHeight: '100px',
+                                          },
+                                        };
                                       },
-                                    };
-                                  },
-                                },
-                              }}
-                            >
-                              {filterOptions.map((filter, index) => {
-                                return (
-                                  <DropdownItem
-                                    key={index}
-                                    onClick={() => handleFilterBy(filter)}
-                                  >
-                                    {filter.label}
-                                  </DropdownItem>
-                                );
-                              })}
-                            </DropdownMenu>
-                          </UncontrolledDropdown>
-                        </div>
-                      )}
-                      {showRefresh && (
-                        <div className="float-md-right pt-1">
-                          <Button
-                            outline
-                            color="primary"
-                            size="xs"
-                            className="mb-2"
-                            ref={refreshRef}
-                            onClick={handleRefresh}
-                          >
-                            Refresh
-                          </Button>
-                        
-                        </div>
-                      )}
-                    </Collapse>
-                  </div>
-                </Colxx>
-              </Row>
-            )}
-          </CardTitle>
+                                    },
+                                  }}
+                                >
+                                  {filterOptions.map((filter, index) => {
+                                    return (
+                                      <DropdownItem
+                                        key={index}
+                                        onClick={() => handleFilterBy(filter)}
+                                      >
+                                        {filter.label}
+                                      </DropdownItem>
+                                    );
+                                  })}
+                                </DropdownMenu>
+                              </UncontrolledDropdown>
+                            </div>
+                          )}
+                          {showRefresh && (
+                            <div className="float-md-right pt-1">
+                              <Button
+                                outline
+                                color="primary"
+                                size="xs"
+                                className="mb-2"
+                                ref={refreshRef}
+                                onClick={handleRefresh}
+                              >
+                                Refresh
+                              </Button>
+                            </div>
+                          )}
+                        </Collapse>
+                      </div>
+                    </Colxx>
+                  </Row>
+                )}
+              </CardTitle>
 
-          <MaterialTable
-            columns={cols}
-            data={data}
-            onView={handleView ? handleView : viewUndefined}
-            onSearch={handleSearch}
-            fetchData={fetchData}
-            onViewMore={handleViewMore}
-            pageCount={pageCount}
-            divided={divided}
-            defaultPageSize={defaultPageSize}
-            hover={hover}
-            responsive={responsive}
-            searchButtonOutline={searchButtonOutline}
-            showPageSizeOptions={showPageSizeOptions}
-            showPageJump={showPageJump}
-            showSearch={showSearch}
-            showEdit={showEdit}
-            showDelete={showDelete}
-            showView={showView}
-            pagination={pagination}
-            idAccessor={idAccessor}
-            hasActionMenu={hasActionMenu}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
-          />
-        </CardBody>
-      </Card>
-      <Modal
-        isOpen={modalBasic}
-        toggle={() => setModalBasic(!modalBasic)}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-      >
-        <ModalHeader>Details</ModalHeader>
-        <ModalBody>
-          <Table striped responsive>
-            <thead>
-              <th>Item</th>
-              <th>Values</th>
-            </thead>
-            <tbody>
-              {Object.keys(viewData).map((keyName, i) => (
-                <tr key={i}>
-                  <td>{keyName}</td>
+              <MaterialTable
+                columns={cols}
+                data={data}
+                onView={handleView ? handleView : viewUndefined}
+                onSearch={handleSearch}
+                fetchData={fetchData}
+                onViewMore={handleViewMore}
+                pageCount={pageCount}
+                divided={divided}
+                defaultPageSize={defaultPageSize}
+                hover={hover}
+                responsive={responsive}
+                searchButtonOutline={searchButtonOutline}
+                showPageSizeOptions={showPageSizeOptions}
+                showPageJump={showPageJump}
+                showSearch={showSearch}
+                showEdit={showEdit}
+                showDelete={showDelete}
+                showView={showView}
+                pagination={pagination}
+                idAccessor={idAccessor}
+                hasActionMenu={hasActionMenu}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+              />
+            </CardBody>
+          </Card>
+          <Modal
+            isOpen={modalBasic}
+            toggle={() => setModalBasic(!modalBasic)}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+          >
+            <ModalHeader>Details</ModalHeader>
+            <ModalBody>
+              <Table striped responsive>
+                <thead>
+                  <th>Item</th>
+                  <th>Values</th>
+                </thead>
+                <tbody>
+                  {Object.keys(viewData).map((keyName, i) => (
+                    <tr key={i}>
+                      <td>{keyName}</td>
 
-                  <td>{viewData[keyName]}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </ModalBody>
-        <ModalFooter>
-          <Button color="secondary" onClick={() => setModalBasic(false)}>
-            Okay
-          </Button>
-        </ModalFooter>
-      </Modal>
-    </LoadingOverlay>
+                      <td>{viewData[keyName]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="secondary" onClick={() => setModalBasic(false)}>
+                Okay
+              </Button>
+            </ModalFooter>
+          </Modal>
+        </>
+      )}
+    </div>
   );
 };
 
