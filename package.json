@@ -28,6 +28,11 @@
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
+  "engines": {
+    "node": "16.14.2",
+    "npm": "8.13.1"
+  },
+
   "scripts": {
     "build:css": "tailwind -i src/index.css -o public/style.css",
     "start": " react-scripts start",
