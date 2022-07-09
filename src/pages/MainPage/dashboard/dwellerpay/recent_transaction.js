@@ -5,15 +5,15 @@ const RecentTransaction = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex border-b-2 border-gray-300">
+      <div className="flex justify-between border-b-2 border-gray-300">
         <div className="flex flex-col  border-b-2 py-1.5 px-2 border-blue-600">
-          <span className="text-base font-bold text-blue-600">Payment</span>
+          <span className="text-base font-bold text-appcolor-800">Payment</span>
         </div>
         <div className="flex flex-col   py-1.5 px-2 ">
-          <span className="text-base font-bold text-blue-600">Deposit</span>
+          <span className="text-base font-bold text-indigo-800">Deposit</span>
         </div>
         <div className="flex flex-col  py-1.5 px-2 ">
-          <span className="text-base font-bold text-blue-600">Withdrawal</span>
+          <span className="text-base font-bold text-indigo-800">Withdrawal</span>
         </div>
       </div>
 

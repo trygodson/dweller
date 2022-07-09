@@ -1,53 +1,87 @@
+import { useState } from 'react';
+import { fadeIn } from 'react-animations';
 import { useHistory } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
 import InputField from '../../shared/components/customforminput';
+import AccountProfile from './account';
+import BusinessProfile from './businessprofile';
+import SettlementProfile from './settlement';
+
+const InfoAnimation = keyframes`${fadeIn}`;
+
+const FadeDiv = styled.div`
+  animation: 0.5s ${InfoAnimation};
+`;
 
 const ProfileForm = () => {
-  const { push } = useHistory();
-  const onSubmit = () => {
-    push('/app/dashboard');
-  };
+  const [openSettingsForm, setOpenSettingsForm] = useState('profile');
 
   return (
     <main className="w-full min-h-screen">
       <div className="mx-auto mt-8 w-3/5">
-        <div className="w-full mt-3 text-center">
-          <h3 className="text-xl font-bold">Profile Form</h3>
+        <div className="flex justify-center items-center">
+          <div
+            className="relative ml-16 my-26  cursor-pointer "
+            onClick={() => setOpenSettingsForm('profile')}
+          >
+            <span className="font-semibold text-lg hover:text-appcolor-500">Business Profile</span>
+            <div
+              style={{ height: '2px' }}
+              className={`${
+                openSettingsForm != 'profile' && 'w-0'
+              } absolute bg-black left-0 bottom-0 mt-10 transition-all duration-300 ${
+                openSettingsForm == 'profile' && 'w-full'
+              }`}
+            ></div>
+          </div>
+          <div
+            className="relative ml-16 my-26 cursor-pointer "
+            onClick={() => setOpenSettingsForm('preferences')}
+          >
+            <span className="font-semibold text-lg hover:text-appcolor-500">Preferences</span>
+            <div
+              style={{ height: '2px' }}
+              className={`${
+                openSettingsForm != 'preferences' && 'w-0'
+              } absolute bg-black left-0 bottom-0 mt-10 transition-all duration-300 ${
+                openSettingsForm == 'preferences' && 'w-full'
+              }`}
+            ></div>
+          </div>
+          <div
+            className="relative ml-16 my-26 cursor-pointer "
+            onClick={() => setOpenSettingsForm('account')}
+          >
+            <span className="font-semibold text-lg hover:text-appcolor-500">
+              Settlement Account
+            </span>
+            <div
+              style={{ height: '2px' }}
+              className={`${
+                openSettingsForm != 'account' && 'w-0'
+              }  absolute bg-black left-0 bottom-0 mt-10 transition-all duration-300 ${
+                openSettingsForm == 'account' && 'w-full'
+              }`}
+            ></div>
+          </div>
         </div>
-        <div className="px-8 py-8 bg-white my-8 shadow-md rounded-md ">
-          <div className="my-1">
-            <InputField inputType="input" type="text" label={'first Name'} placeholder=".." />
-          </div>
-          <div className="my-1">
-            <InputField inputType="input" type="text" label={'last Name'} placeholder=".." />
-          </div>
-          <div className="my-1">
-            <InputField inputType="textarea" type="text" label={'Description'} placeholder=".." />
-          </div>
-          <div className="my-1">
-            <InputField inputType="input" type="text" label={'Contact Email'} placeholder=".." />
-          </div>
-          <div className="my-1">
-            <InputField inputType="input" type="text" label={'Phone No'} placeholder=".." />
-          </div>
-          <div className="my-1">
-            <InputField inputType="input" type="text" label={'State'} placeholder=".." />
-          </div>
-          <div className="my-1">
-            <InputField inputType="input" type="text" label={'LGA'} placeholder=".." />
-          </div>
-          <div className="my-1">
-            <InputField inputType="textarea" type="text" label={'Addresses'} placeholder=".." />
-          </div>
 
-          <div className="px-2 mt-8">
-            <button
-              className="outline-none border-none w-full text-white text-lg font-bold rounded text-center h-10 bg-appcolor-500 hover:bg-appcolor-900"
-              onClick={onSubmit}
-            >
-              Submit
-            </button>
-          </div>
-        </div>
+        {openSettingsForm === 'profile' && (
+          <FadeDiv>
+            {' '}
+            <BusinessProfile />
+          </FadeDiv>
+        )}
+        {openSettingsForm === 'preferences' && (
+          <FadeDiv>
+            <SettlementProfile />
+          </FadeDiv>
+        )}
+        {openSettingsForm === 'account' && (
+          <FadeDiv>
+            <AccountProfile />
+          </FadeDiv>
+        )}
       </div>
     </main>
   );

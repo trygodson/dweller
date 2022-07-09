@@ -9,13 +9,14 @@ import {
 import BarChart from '../../../../shared/components/BarChart/BarChart';
 import TheGradientLineCharts from '../../../../shared/components/LineChart/gradientlinechart';
 import DoughnutCharts from '../../../../shared/components/donought/doughnut';
+import RecentTransaction from '../dwellerpay/recent_transaction';
 
 const AdminDashboard = () => {
   return (
-    <main className="">
+    <main className="mt-5">
       <div style={{ height: 'calc(100vh * 0.12)' }}>
         <div className="flex ">
-          <div className="h-16 w-16 mr-2 rounded-full bg-cover bg-[url('https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg')]"></div>
+          <div className="h-16 w-16 mr-2 rounded-full bg-cover bg-[url('https://avatars.githubusercontent.com/u/86506519?v=4')]"></div>
           <div className="flex flex-col justify-center">
             <p className="text-lg mb-1">
               Hi <span className="font-extrabold tracking-wide">Godson</span>
@@ -27,7 +28,7 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-12 gap-3 mt-4">
+      <div className="grid grid-cols-12 gap-4 mt-4">
         <div className="col-span-9">
           <div
             className="border border-gray-300  shadow-md rounded-md "
@@ -209,7 +210,24 @@ const AdminDashboard = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-3"></div>
+        <div className="col-span-3">
+          <div className="bg-white flex flex-col justify-between h-40 mb-3 p-5 rounded-lg shadow">
+            <div>
+              <p className="text-sm font-normal text-grey-800">Available Credit</p>
+              <p className="text-base font-bold"> ₦276,676,78 NAIRA</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold mb-1">23% Drawdown</p>
+              <div className="w-full h-3 rounded-md bg-orange-500 "></div>
+              <div className="flex justify-between mt-1">
+                <p className="text-xs text-grey-600 font-semibold">₦152,765 Used</p>
+                <p className="text-xs text-grey-600 font-semibold">Limit ₦52M</p>
+              </div>
+            </div>
+          </div>
+          <h3 className="text-lg font-bold my-4">Recent Activities</h3>
+          <RecentTransaction />
+        </div>
       </div>
     </main>
   );

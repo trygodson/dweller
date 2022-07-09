@@ -4,6 +4,7 @@ import { lazy } from 'react';
 const DwellerPayDashboard = lazy(() => import('../pages/MainPage/dashboard/dwellerpay'));
 const AdminDashboard = lazy(() => import('../pages/MainPage/dashboard/Admin'));
 const MyProperties = lazy(() => import('../pages/MainPage/properties/Admin/MyProperties'));
+const MyCollection = lazy(() => import('../pages/MainPage/collection'));
 const ProfileForm = lazy(() => import('../pages/profile/index'));
 
 export default [
@@ -22,6 +23,11 @@ export default [
   {
     path: 'profile-form',
     component: ProfileForm,
+    // permission: [],
+  },
+  {
+    path: 'my-collection',
+    component: MyCollection,
     // permission: [],
   },
   // {

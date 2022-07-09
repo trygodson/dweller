@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 // import { useAuthState } from '../../context/useAuthContext';
 import user from '../../../data/user.json';
 
-const NavbarProfileIcons = ({ sidebarOpen, openSidebar }) => {
+const NavbarProfileIcons = ({ sidebarOpen, openSidebar, ...props }) => {
   // const { user } = useAuthState();
-  const imageurl = 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg';
-  const renderUserToggle = user => (
+  const imageurl = 'https://avatars.githubusercontent.com/u/86506519?v=4';
+  const renderUserToggle = (user) => (
     <div className="topnav__right-user">
       <div className="topnav__right-user__image">
         <img src={user.image} alt="" />
@@ -41,7 +41,7 @@ const NavbarProfileIcons = ({ sidebarOpen, openSidebar }) => {
   // };
 
   return (
-    <div className="navbar">
+    <div className="navbar absolute right-3 top-3" {...props}>
       {/* <div className="nav_icon" onClick={() => openSidebar()}>
         <i className="fa fa-bars" aria-hidden="true"></i>
       </div> */}
@@ -73,11 +73,14 @@ const NavbarProfileIcons = ({ sidebarOpen, openSidebar }) => {
           {/* dropdown here */}
         </div>
         <div className="nav-user d-none d-md-flex">
-          <div className="user-image" style={{ backgroundImage: `url('${imageurl}')` }}></div>
-          <div className="user-details">
+          <div className="user-details mr-2">
             <h5>Godson</h5>
             <span className="role">Admin</span>
           </div>
+          <div
+            className="user-image rounded-full"
+            style={{ backgroundImage: `url('${imageurl}')` }}
+          ></div>
         </div>
         {/* <div className="topnav__right-item">
                     <ThemeMenu/>

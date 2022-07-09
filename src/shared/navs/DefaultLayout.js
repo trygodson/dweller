@@ -37,15 +37,15 @@ const DefaultLayout = (props) => {
     <motion.section className="w-screen flex justify-between bg-slate-100">
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} toggle={toggle} />
       <div
-        className="h-screen px-6 py-4"
+        className="h-screen relative px-6 py-4"
         style={{ width: `calc(100% - ${isOpen ? '225px' : '50px'})`, overflowY: 'scroll' }}
       >
         {/* <Navbar openSidebar={null} sidebarOpen={null} /> */}
         {/* <TopNavBar openSideBar={null}  sidebarOpen={null}/> */}
         {/* <List size={22} style={{ position: 'absolute' }} /> */}
-        {/* <div className="w-full flex justify-end">
-          <NavbarProfileIcons />
-        </div> */}
+
+        <NavbarProfileIcons />
+
         <AnimatePresence>
           <motion.div className="min-full min-h-max  ">
             <Suspense fallback={<Loading />}>

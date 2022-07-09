@@ -5,14 +5,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook, BsTwitter } from 'react-icons/bs';
 import * as Yup from 'yup';
 import { AuthJumbotron } from '../../../shared/components/authJumbotron';
-import {
-  bgAuthImage,
-  logo,
-  collage1,
-  collage2,
-  authOverlay,
-  logowhite,
-} from '../../../Entryfile/imagepath';
+import { bgAuthImage, logo, collage1, collage2, authOverlay } from '../../../Entryfile/imagepath';
 import { Input } from '../../../shared/components/formInputs';
 // import useAuthService from '../../../shared/hooks/api/useAuthService';
 import Button from '../../../shared/components/button';
@@ -100,7 +93,7 @@ const Login = (props) => {
   return (
     <>
       <div className="flex w-full h-screen">
-        <div className="flex relative justify-center items-center w-2/6 bg-appcolor-900">
+        <div className="flex relative justify-center items-center w-3/5 bg-appcolor-900">
           <div
             className={`absolute w-full h-full bg-no-repeat bg-cover`}
             style={{
@@ -110,31 +103,38 @@ const Login = (props) => {
               opacity: 0.4,
             }}
           ></div>
-          <div className=" w-3/6 h-5/6 " style={{ width: '70%' }}>
-            <div className="w-full flex justify-center items-center">
-              <img src={logowhite} className="w-52" />
+          <div className=" w-3/5 h-5/6 " style={{ width: '70%' }}>
+            <div className="flex justify-between items-center">
+              <div className="rounded-full w-16 h-16 bg-teal-500 flex justify-center items-center">
+                <i className="fi fi-rr-quote-right text-3xl text-white"></i>
+              </div>
             </div>
-
-            <div className="w-4/6 mt-9 mx-auto">
-              <p className="text-xl text-white font-bold text-center">
-                Manage and Get Real Estate Services Easily
-              </p>
+            <div>
+              <span className="text-9xl font-extrabold text-white">Make a Dream.</span>
             </div>
-
-            <div className="w-5/6 mt-10 mx-auto">
-              <p className="text-base text-slate-400 font-semibold text-center">
-                We are backed by engineering executives and investors of
-              </p>
+            <div className=" flex justify-between">
+              <div className="h-48 ml-10 bg-gray-300" style={{ width: '1px' }}></div>
+              <div className="flex flex-col w-80 justify-center mr-10 ">
+                <p className="text-base text-gray-300 ">
+                  There is no hunting like the hunting of man, and those who have hunted armed men
+                  long enough and liked it, never care for anything else thereafter.
+                </p>
+                <div className=" ">
+                  <span className="italic block text-right  text-xs">Ernest Hemingway</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="w-4/6 flex flex-col justify-center items-center">
-          <div className="w-2/5 h-full flex flex-col justify-between">
-            <div className="" style={{ marginTop: '100px' }}>
-              <p className="text-5xl mb-2 font-bold">Sign in</p>
-              <Link to="/signup" className="text-md text-gray-600 font-semibold hover:text-black">
-                or Create an Account
-              </Link>
+        <div className="w-2/5 flex flex-col justify-center items-center">
+          <div className="w-4/5 h-full flex flex-col justify-between">
+            <div className="mt-5">
+              <p className="text-sm ml-2 text-gray-400">
+                Dont have an account?{' '}
+                <Link to="/signup" className="text-md text-black font-bold">
+                  Sign Up
+                </Link>
+              </p>
             </div>
             <div style={{ marginBottom: '110px' }}>
               <Formik
@@ -147,7 +147,9 @@ const Login = (props) => {
                   <>
                     <div className="text-center">
                       <div className="">
-                        <div className="flex justify-center"></div>
+                        <div className="flex justify-center">
+                          <img src={logo} className="w-52" />
+                        </div>
                         <div>
                           <span></span>
                         </div>

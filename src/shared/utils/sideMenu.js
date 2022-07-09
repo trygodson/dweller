@@ -13,14 +13,14 @@ export const MenuList = [
   {
     id: 'collection',
     label: 'Collection',
-    to: '/app/properties',
+    to: '/app/my-collection',
     icon: <i className="fi fi-rr-layout-fluid text-xl"></i>,
     bottom: false,
     subs: [
       {
         id: 'mycollection',
         label: 'My Collection',
-        to: '/djjnj',
+        to: '/app/my-collection',
         // permissions: [userPermissions.Hr, userPermissions.Admin],
       },
       {
