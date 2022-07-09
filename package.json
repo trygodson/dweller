@@ -34,7 +34,6 @@
   },
 
   "scripts": {
-    "build:css": "tailwind -i src/index.css -o public/style.css",
     "start": " react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
