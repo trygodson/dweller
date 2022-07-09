@@ -29,7 +29,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Open Sans', 'sans-serif'],
+        sans: ['Nunito Sans', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
       },
     },
