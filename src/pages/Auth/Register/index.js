@@ -171,16 +171,20 @@ const Register = (props) => {
                   </>
                 )}
               </Formik>
-              <div className="w-full my-2 text-center"> or </div>
-              <div className="flex justify-around">
-                <div className="border-solid p-3 border-2 rounded border-gray-400">
-                  <BsFacebook size={34} />
+              <div className="w-full my-2 text-center flex justify-center items-center">
+                {' '}
+                <span className="text-sm text-grey-200">---------------</span>{' '}
+                <span className="text-lg mx-2 font-bold">or</span>
+                <span className="text-sm text-grey-200">---------------</span>{' '}
+              </div>
+              <div className="flex flex-col justify-around">
+                <div className="border-solid p-3 my-2 border-2 rounded shadow-md flex items-center justify-center ">
+                  <FcGoogle size={24} />
+                  <span className="ml-2 text-base font-semibold">Sign up with Google</span>
                 </div>
-                <div className="border-solid p-3 border-2 rounded border-gray-400">
-                  <FcGoogle size={34} />
-                </div>
-                <div className="border-solid p-3 border-2 rounded border-gray-400">
-                  <BsTwitter size={34} />
+                <div className="border-solid p-3 my-2 border-2 rounded shadow-md flex  items-center justify-center ">
+                  <BsFacebook size={24} color="#1a2b46" />
+                  <span className="ml-2 text-base font-semibold">Sign up with Facebook</span>
                 </div>
               </div>
             </div>

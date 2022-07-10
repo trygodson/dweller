@@ -1,18 +1,18 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/no-array-index-key */
-import { ArrowBack, ArrowForward } from "@material-ui/icons";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from 'react';
+import { MdArrowLeft, MdArrowRight } from 'react-icons/md';
 import {
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
   Pagination,
   PaginationItem,
   PaginationLink,
   UncontrolledDropdown,
-  DropdownMenu,
-  DropdownToggle,
-  DropdownItem,
-} from "reactstrap";
+} from 'reactstrap';
 
-const TPagination = ({
+const DataTablePagination = ({
   page,
   pages,
   canPrevious,
@@ -82,7 +82,7 @@ const TPagination = ({
       pageButtons.push(
         <PaginationItem key={i} active={active}>
           <PaginationLink onClick={() => pageClick(i)}>{i + 1}</PaginationLink>
-        </PaginationItem>
+        </PaginationItem>,
       );
     }
     return pageButtons;
@@ -94,7 +94,7 @@ const TPagination = ({
       pageNumbers.push(
         <DropdownItem key={i} onClick={() => changePage(i)}>
           {i + 1}
-        </DropdownItem>
+        </DropdownItem>,
       );
     }
     return pageNumbers;
@@ -118,12 +118,12 @@ const TPagination = ({
         )}
 
         <Pagination
-          className="d-inline-block"
+          className="inline-block"
           size="sm"
-          listClassName="justify-content-center"
+          listClassName="flex"
           aria-label="Page navigation example"
         >
-          <PaginationItem className={`${!canPrevious && "disabled"}`}>
+          <PaginationItem className={`${!canPrevious && 'disabled'}`}>
             <PaginationLink
               className="prev"
               onClick={() => {
@@ -131,14 +131,14 @@ const TPagination = ({
                 changePage(page - 1);
               }}
               disabled={!canPrevious}
-              style={{height:31}}
             >
-              <ArrowBack />
+              <i className="uil-arrow-left" />
+              <MdArrowLeft />
             </PaginationLink>
           </PaginationItem>
 
           {renderPages()}
-          <PaginationItem className={`${!canNext && "disabled"}`}>
+          <PaginationItem className={`${!canNext && 'disabled'}`}>
             <PaginationLink
               className="next"
               onClick={() => {
@@ -146,26 +146,23 @@ const TPagination = ({
                 changePage(page + 1);
               }}
               disabled={!canNext}
-              style={{height:31}}
             >
-              <ArrowForward />
+              <i className="uil-arrow-right" />
+              <MdArrowRight />
             </PaginationLink>
           </PaginationItem>
         </Pagination>
         {showPageSizeOptions && (
           <div className="float-right pt-2">
-            {/* <span className="text-muted text-small mr-1">Count </span> */}
-            <UncontrolledDropdown className="d-inline-block" >
-              <DropdownToggle caret color="outline-primary" size="xxs">
+            <span className="text-muted text-small mr-1">Items per Page </span>
+            <UncontrolledDropdown className="d-inline-block">
+              <DropdownToggle caret color="outline-primary" size="xs">
                 {pageSize}
               </DropdownToggle>
               <DropdownMenu right>
                 {pageSizeOptions.map((size, index) => {
                   return (
-                    <DropdownItem
-                      key={index}
-                      onClick={() => changePageSize(size)}
-                    >
+                    <DropdownItem key={index} onClick={() => changePageSize(size)}>
                       {size}
                     </DropdownItem>
                   );
@@ -178,4 +175,4 @@ const TPagination = ({
     </>
   );
 };
-export default TPagination;
+export default DataTablePagination;

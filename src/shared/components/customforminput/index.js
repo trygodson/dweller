@@ -10,5 +10,24 @@ const InputField = (props) => {
     </div>
   );
 };
+export const AnotherInputField = ({
+  className = 'form-input px-3 py-2 bg-transparent w-full border-none rounded focus:ring-0  focus:outline-0 focus:border-none ',
+  inputType,
+  label = false,
+  labelName,
+  borderStyle = 'border border-gray-500 rounded shadow',
+  children,
+  ...props
+}) => {
+  const Text = inputType;
+  return (
+    <div className={borderStyle}>
+      {label && <label className="text-base mb-1 font-serif text-appcolor-900">{labelName}</label>}
+      <Text className={className} {...props}>
+        {children}
+      </Text>
+    </div>
+  );
+};
 
 export default InputField;

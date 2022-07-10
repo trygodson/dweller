@@ -34,7 +34,7 @@ const DefaultLayout = (props) => {
   const moreprops = [isOpen, setIsOpen, toggle];
 
   return (
-    <motion.section className="w-screen flex justify-between bg-slate-100">
+    <motion.section className="w-screen flex justify-between" style={{ backgroundColor: 'FCFCFC' }}>
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} toggle={toggle} />
       <div
         className="h-screen relative px-6 py-4"
@@ -47,7 +47,7 @@ const DefaultLayout = (props) => {
         <NavbarProfileIcons />
 
         <AnimatePresence>
-          <motion.div className="min-full min-h-max  ">
+          <motion.div className="min-full min-h-max  mt-10">
             <Suspense fallback={<Loading />}>
               <Switch>
                 {routerService &&

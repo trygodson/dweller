@@ -1,90 +1,92 @@
-import { userPermissions } from './userPermissions';
-import { RiDashboardFill } from 'react-icons/ri';
-import { FaCity } from 'react-icons/fa';
-
 export const MenuList = [
   {
     id: 'dashboard',
     label: 'DASHBOARD',
     to: '/app/dashboard',
     icon: <i className="fi fi-rr-apps text-xl"></i>,
-    bottom: false,
+    title: 'collection',
   },
   {
-    id: 'collection',
-    label: 'Collection',
+    id: 'mycollection',
+    label: 'My Collection',
     to: '/app/my-collection',
     icon: <i className="fi fi-rr-layout-fluid text-xl"></i>,
-    bottom: false,
-    subs: [
-      {
-        id: 'mycollection',
-        label: 'My Collection',
-        to: '/app/my-collection',
-        // permissions: [userPermissions.Hr, userPermissions.Admin],
-      },
-      {
-        id: 'offline',
-        label: 'Offline',
-        to: '/djhn',
-        // permissions: [userPermissions.Hr, userPermissions.Admin],
-      },
-      {
-        id: 'validate',
-        label: 'Validate Txn',
-        to: '/djhn',
-        // permissions: [userPermissions.Hr, userPermissions.Admin],
-      },
-      {
-        id: 'history',
-        label: 'History',
-        to: '/djhn',
-        // permissions: [userPermissions.Hr, userPermissions.Admin],
-      },
-    ],
+    title: 'collection',
+
+    // permissions: [userPermissions.Hr, userPermissions.Admin],
   },
+  {
+    id: 'offline',
+    label: 'Offline',
+    to: '/app/offline',
+    icon: <i className="fi fi-rr-user-time text-xl"></i>,
+    title: 'collection',
+
+    // permissions: [userPermissions.Hr, userPermissions.Admin],
+  },
+  {
+    id: 'validate',
+    label: 'Validate Txn',
+    to: '/app/validate',
+    icon: <i className="fi fi-rr-layers text-xl"></i>,
+    title: 'collection',
+
+    // permissions: [userPermissions.Hr, userPermissions.Admin],
+  },
+  {
+    id: 'history',
+    label: 'History',
+    to: '/app/history',
+    icon: <i className="fi fi-rr-clock text-xl"></i>,
+    title: 'collection',
+
+    // permissions: [userPermissions.Hr, userPermissions.Admin],
+  },
+
   {
     id: 'community',
     label: 'Community',
     to: '/app/properties',
     icon: <i className="fi fi-rr-box text-xl"></i>,
-    bottom: false,
-    subs: [
-      {
-        id: 'adddwellers',
-        label: 'Add Dwellers',
-        to: '/djjnj',
-        // permissions: [userPermissions.Hr, userPermissions.Admin],
-      },
-    ],
+    title: 'community',
   },
+
+  {
+    id: 'adddwellers',
+    label: 'Add Dwellers',
+    to: '/app/dwellers',
+    icon: <i className="fi fi-rr-home text-xl"></i>,
+    title: 'community',
+
+    // permissions: [userPermissions.Hr, userPermissions.Admin],
+  },
+
   {
     id: 'notification',
     label: 'Notification',
     to: '/app/properties',
-    icon: <i className="fi fi-rr-box text-xl"></i>,
-    bottom: false,
+    icon: <i className="fi fi-rr-bell-ring text-xl"></i>,
+    title: 'notification',
   },
   {
-    id: 'payapi',
-    label: 'Pay APIs',
-    to: '/jjjn',
-    icon: <i className="fi fi-rr-apps-sort text-xl"></i>,
-    bottom: true,
-    subs: [
-      {
-        id: 'documentation',
-        label: 'Documentation',
-        to: '/djjnj',
-        // permissions: [userPermissions.Hr, userPermissions.Admin],
-      },
-      {
-        id: 'apikeys',
-        label: 'API Keys',
-        to: '/djhn',
-        // permissions: [userPermissions.Hr, userPermissions.Admin],
-      },
-    ],
+    id: 'documentation',
+    label: 'Documentation',
+    to: '/app/docs',
+    icon: <i className="fi fi-rr-book text-xl"></i>,
+
+    title: 'services',
+
+    // permissions: [userPermissions.Hr, userPermissions.Admin],
+  },
+  {
+    id: 'apikeys',
+    label: 'API Keys',
+    to: '/app/apikeys',
+    icon: <i className="fi fi-rr-key text-xl"></i>,
+
+    title: 'services',
+
+    // permissions: [userPermissions.Hr, userPermissions.Admin],
   },
 
   // {

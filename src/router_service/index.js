@@ -5,6 +5,7 @@ const DwellerPayDashboard = lazy(() => import('../pages/MainPage/dashboard/dwell
 const AdminDashboard = lazy(() => import('../pages/MainPage/dashboard/Admin'));
 const MyProperties = lazy(() => import('../pages/MainPage/properties/Admin/MyProperties'));
 const MyCollection = lazy(() => import('../pages/MainPage/collection'));
+const AddCollection = lazy(() => import('../pages/MainPage/collection/addcollection'));
 const ProfileForm = lazy(() => import('../pages/profile/index'));
 
 export default [
@@ -28,6 +29,11 @@ export default [
   {
     path: 'my-collection',
     component: MyCollection,
+    // permission: [],
+  },
+  {
+    path: 'add-collection',
+    component: AddCollection,
     // permission: [],
   },
   // {

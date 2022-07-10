@@ -29,11 +29,8 @@ const AdminDashboard = () => {
         </div>
       </div>
       <div className="grid grid-cols-12 gap-4 mt-4">
-        <div className="col-span-9">
-          <div
-            className="border border-gray-300  shadow-md rounded-md "
-            style={{ height: 'calc(100vh * 0.45)' }}
-          >
+        <div className="col-span-8">
+          <div className=" bg-white shadow-md rounded-md " style={{ height: 'calc(100vh * 0.45)' }}>
             <div className="grid px-5 border-b border-gray-300 py-3 grid-cols-2 h-3/5 gap-4">
               <div className="col-span-1 h-full flex flex-col justify-between">
                 <div className="">
@@ -81,7 +78,7 @@ const AdminDashboard = () => {
           </div>
           <div className="mt-4" style={{ height: 'calc(100vh * 0.37)' }}>
             <div className="grid grid-cols-2 h-full gap-6">
-              <div className="col-span-1 grid grid-rows-5 grid-flow-col gap-2 px-4 py-3 h-full border border-gray-300  shadow-md rounded-md">
+              <div className="col-span-1 grid grid-rows-5 grid-flow-col gap-2 px-4 py-3 h-full bg-white  shadow-md rounded-md">
                 <div className="row-span-1 flex items-center">
                   <p className="text-base font-bold">Task Summary</p>
                 </div>
@@ -135,7 +132,7 @@ const AdminDashboard = () => {
                   <div className="w-3/5 absolute bottom-0 right-0"></div>
                 </div>
               </div>
-              <div className="col-span-1  grid grid-rows-5 grid-flow-col gap-2 px-4 py-3 h-full   border border-gray-300  shadow-md rounded-md">
+              <div className="col-span-1  grid grid-rows-5 grid-flow-col gap-2 px-4 py-3 h-full  bg-white  shadow-md rounded-md">
                 <div className="row-span-1">
                   <div className="row-span-1 flex items-center justify-between">
                     <p className="text-base font-bold">Task Summary</p>
@@ -210,7 +207,7 @@ const AdminDashboard = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-3">
+        <div className="col-span-4">
           <div className="bg-white flex flex-col justify-between h-40 mb-3 p-5 rounded-lg shadow">
             <div>
               <p className="text-sm font-normal text-grey-800">Available Credit</p>

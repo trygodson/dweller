@@ -1,0 +1,72 @@
+.table-unstriped > tbody > tr:nth-child(odd) > td,
+.table-unstriped > tbody > tr:nth-child(even) > td {
+  background-color: white;
+}
+
+.row {
+  .somethings {
+    .history-search {
+      display: inline-block;
+      .d-flex.shu {
+        align-items: center;
+        .history-wrapper {
+          border-radius: 20px;
+          padding: 10px 15px;
+          span {
+            margin-left: 5px;
+          }
+        }
+        .search-wrapper {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+        @media (max-width: 767px) {
+          .history-wrapper {
+            padding: 8px 12px;
+
+            span {
+              font-size: 15px;
+            }
+          }
+          .search-wrapper {
+            width: 35px;
+            height: 35px;
+            svg {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .add-area {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0;
+    .add-item-wrapper {
+      border-radius: 20px;
+      padding: 10px 15px;
+      color: white;
+      background-color: rgb(4, 4, 56);
+      cursor: pointer;
+      span {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  @media (max-width: 564px) {
+    .add-area {
+      .add-item-wrapper {
+        border-radius: 15px;
+        font-size: 15px;
+        padding: 8px 12px;
+      }
+    }
+  }
+}

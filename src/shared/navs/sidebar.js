@@ -67,7 +67,6 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
       },
     },
   };
-  console.log(splitLocation);
   const filteredList = (menuItems) => {
     const permission = user.permission;
 
@@ -119,14 +118,16 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
 
         <AnimatePresence>
           {isOpen && (
-            <motion.h3 className="text-base font-bold m-2 mt-4 text-gray-500">PAYMENTS</motion.h3>
+            <motion.h3 className="text-base font-bold m-2 mt-4 text-gray-500">
+              COLLECTIONS
+            </motion.h3>
           )}
         </AnimatePresence>
         {filteredList(MenuList).map((x) => {
           var node;
           var sub_node;
 
-          if (x.bottom == false) {
+          if (x.title === 'collection') {
             return (
               <motion.div>
                 <AnimatePresence>
@@ -150,7 +151,7 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
                           </motion.div>
                         )}
                       </NavLink>
-                      {isOpen && <motion.i className="fi fi-rr-angle-small-down text-lg" />}
+                      {/* {isOpen && <motion.i className="fi fi-rr-angle-small-down text-lg" />} */}
                     </motion.div>
                     {x.subs != undefined &&
                       x.subs.length > 0 &&
@@ -184,13 +185,135 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
         <AnimatePresence>{!isOpen && <motion.div className="h-6"></motion.div>}</AnimatePresence>
         <AnimatePresence>
           {isOpen && (
+            <motion.h3 className="text-base font-bold m-2 text-gray-500">COMMUINITY</motion.h3>
+          )}
+        </AnimatePresence>
+        {filteredList(MenuList).map((x) => {
+          var node;
+          var sub_node;
+          if (x.title == 'community') {
+            return (
+              <motion.div>
+                <AnimatePresence>
+                  <motion.div>
+                    <NavLink key={x.to} to={x.to} className="link my-1" activeClassName="active">
+                      {x.icon}
+                      {isOpen && (
+                        <motion.div
+                          variants={showAnimation}
+                          initial="hidden"
+                          animate="show"
+                          exit="hidden"
+                          className="link_text font-semibold"
+                        >
+                          {x.label}
+                        </motion.div>
+                      )}
+                    </NavLink>
+                    {x.subs != undefined &&
+                      x.subs.length > 0 &&
+                      filteredList(x.subs).map((s) => {
+                        if (isOpen) {
+                          return (
+                            <NavLink key={s.to} to={s.to} className="link" activeClassName="active">
+                              {/* <div className="icon">{page.icon}</div> */}
+                              <AnimatePresence>
+                                <motion.div
+                                  variants={dropdownAnimation}
+                                  initial="hidden"
+                                  animate="show"
+                                  exit="hidden"
+                                  className="link_text "
+                                >
+                                  {s.label}
+                                </motion.div>
+                              </AnimatePresence>
+                            </NavLink>
+                          );
+                        }
+                      })}
+                  </motion.div>
+                </AnimatePresence>
+              </motion.div>
+            );
+          }
+          // if (sub_node.length > 0)
+          //   return <SubMenu title={x.label}>{sub_node}</SubMenu>;
+          // else return <></>;
+        })}
+      </section>
+      <section className="routes">
+        <AnimatePresence>{!isOpen && <motion.div className="h-6"></motion.div>}</AnimatePresence>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.h3 className="text-base font-bold m-2 text-gray-500">NOTIFICATION</motion.h3>
+          )}
+        </AnimatePresence>
+        {filteredList(MenuList).map((x) => {
+          var node;
+          var sub_node;
+          if (x.title === 'notification') {
+            return (
+              <motion.div>
+                <AnimatePresence>
+                  <motion.div>
+                    <NavLink key={x.to} to={x.to} className="link my-1" activeClassName="active">
+                      {x.icon}
+                      {isOpen && (
+                        <motion.div
+                          variants={showAnimation}
+                          initial="hidden"
+                          animate="show"
+                          exit="hidden"
+                          className="link_text font-semibold"
+                        >
+                          {x.label}
+                        </motion.div>
+                      )}
+                    </NavLink>
+                    {x.subs != undefined &&
+                      x.subs.length > 0 &&
+                      filteredList(x.subs).map((s) => {
+                        if (isOpen) {
+                          return (
+                            <NavLink key={s.to} to={s.to} className="link" activeClassName="active">
+                              {/* <div className="icon">{page.icon}</div> */}
+                              <AnimatePresence>
+                                <motion.div
+                                  variants={dropdownAnimation}
+                                  initial="hidden"
+                                  animate="show"
+                                  exit="hidden"
+                                  className="link_text "
+                                >
+                                  {s.label}
+                                </motion.div>
+                              </AnimatePresence>
+                            </NavLink>
+                          );
+                        }
+                      })}
+                  </motion.div>
+                </AnimatePresence>
+              </motion.div>
+            );
+          }
+          // if (sub_node.length > 0)
+          //   return <SubMenu title={x.label}>{sub_node}</SubMenu>;
+          // else return <></>;
+        })}
+      </section>
+      <section className="routes">
+        <AnimatePresence>{!isOpen && <motion.div className="h-6"></motion.div>}</AnimatePresence>
+        <AnimatePresence>
+          {isOpen && (
             <motion.h3 className="text-base font-bold m-2 text-gray-500">SERVICES</motion.h3>
           )}
         </AnimatePresence>
         {filteredList(MenuList).map((x) => {
           var node;
           var sub_node;
-          if (x.bottom == true) {
+          if (x.title === 'services') {
             return (
               <motion.div>
                 <AnimatePresence>

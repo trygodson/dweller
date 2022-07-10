@@ -18,7 +18,7 @@ const ProfileForm = () => {
 
   return (
     <main className="w-full min-h-screen">
-      <div className="mx-auto mt-8 w-3/5">
+      <div className="mx-auto mt-2 w-3/5">
         <div className="flex justify-center items-center">
           <div
             className="relative ml-16 my-26  cursor-pointer "
