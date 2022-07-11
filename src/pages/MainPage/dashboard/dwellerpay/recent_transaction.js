@@ -15,7 +15,7 @@ const RecentTransaction = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-center items-center">
+      <div className="flex w-1/2 justify-center items-center">
         <div
           className="relative ml-16 my-26  cursor-pointer "
           onClick={() => setOpenAction('transaction')}
