@@ -34,11 +34,11 @@ const DefaultLayout = (props) => {
   const moreprops = [isOpen, setIsOpen, toggle];
 
   return (
-    <motion.section className="w-screen flex justify-between" style={{ backgroundColor: 'FCFCFC' }}>
+    <motion.section className="w-screen flex justify-between" style={{ backgroundColor: 'FBFBFB' }}>
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} toggle={toggle} />
       <div
-        className="h-screen relative px-6 py-4"
-        style={{ width: `calc(100% - ${isOpen ? '225px' : '50px'})`, overflowY: 'scroll' }}
+        className="h-screen relative "
+        style={{ width: `calc(100% - ${isOpen ? '225px' : '60px'})`, overflowY: 'scroll' }}
       >
         {/* <Navbar openSidebar={null} sidebarOpen={null} /> */}
         {/* <TopNavBar openSideBar={null}  sidebarOpen={null}/> */}
@@ -47,7 +47,7 @@ const DefaultLayout = (props) => {
         <NavbarProfileIcons />
 
         <AnimatePresence>
-          <motion.div className="min-full min-h-max  mt-10">
+          <motion.div className="min-full min-h-max px-6 py-2  mt-1">
             <Suspense fallback={<Loading />}>
               <Switch>
                 {routerService &&

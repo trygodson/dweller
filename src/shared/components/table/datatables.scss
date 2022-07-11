@@ -23,6 +23,9 @@ body {
   thead,
   tbody {
     tr {
+      th {
+        text-align: left;
+      }
       th,
       td {
         vertical-align: middle;

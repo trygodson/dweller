@@ -4,7 +4,7 @@ export const MenuList = [
     label: 'DASHBOARD',
     to: '/app/dashboard',
     icon: <i className="fi fi-rr-apps text-xl"></i>,
-    title: 'collection',
+    title: 'dashboard',
   },
   {
     id: 'mycollection',

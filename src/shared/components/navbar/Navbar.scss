@@ -1,14 +1,11 @@
 // @import '../../styles/scss/variables.scss';
 
 .navbar {
-  background-color: transparent;
-  grid-area: nav;
-  height: 45px;
+  // grid-area: nav;
   display: flex;
-  width: fit-content;
+  width: 100%;
   align-items: center;
-  justify-content: space-between;
-  padding: 8px 5px 8px 30px;
+  padding: 10px 17px 10px 30px;
   .navbar__left {
     .navbar__logo {
       width: 100px;

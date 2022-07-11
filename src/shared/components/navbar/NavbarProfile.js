@@ -41,7 +41,7 @@ const NavbarProfileIcons = ({ sidebarOpen, openSidebar, ...props }) => {
   // };
 
   return (
-    <div className="navbar absolute right-3 top-3" {...props}>
+    <div className="navbar w-full bg-white flex justify-end shadow" {...props}>
       {/* <div className="nav_icon" onClick={() => openSidebar()}>
         <i className="fa fa-bars" aria-hidden="true"></i>
       </div> */}

@@ -85,7 +85,7 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
   return (
     <motion.div
       animate={{
-        width: isOpen ? '225px' : '50px',
+        width: isOpen ? '225px' : '60px',
 
         transition: {
           duration: 0.25,
@@ -116,9 +116,70 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
       <section className="routes">
         {!isOpen && <motion.div className="h-6"></motion.div>}
 
+        {filteredList(MenuList).map((x) => {
+          var node;
+          var sub_node;
+
+          if (x.title === 'dashboard') {
+            return (
+              <motion.div>
+                <AnimatePresence>
+                  <motion.div>
+                    <motion.div
+                      className={`link flex justify-between ${
+                        `/${splitLocation[1]}/${splitLocation[2]}` == x.to && `active`
+                      }`}
+                    >
+                      <NavLink key={x.to} to={x.to} className="flex my-1" activeClassName="">
+                        {x.icon}
+                        {isOpen && (
+                          <motion.div
+                            variants={showAnimation}
+                            initial="hidden"
+                            animate="show"
+                            exit="hidden"
+                            className="text-base ml-2 border-0 font-semibold"
+                          >
+                            {x.label}
+                          </motion.div>
+                        )}
+                      </NavLink>
+                      {/* {isOpen && <motion.i className="fi fi-rr-angle-small-down text-lg" />} */}
+                    </motion.div>
+                    {x.subs != undefined &&
+                      x.subs.length > 0 &&
+                      isOpen &&
+                      filteredList(x.subs).map((s) => {
+                        return (
+                          <NavLink key={s.to} to={s.to} className="link" activeClassName="active">
+                            {/* <div className="icon">{page.icon}</div> */}
+                            <AnimatePresence>
+                              <motion.div
+                                variants={dropdownAnimation}
+                                initial="hidden"
+                                animate="show"
+                                exit="hidden"
+                                className="link_text "
+                              >
+                                {s.label}
+                              </motion.div>
+                            </AnimatePresence>
+                          </NavLink>
+                        );
+                      })}
+                  </motion.div>
+                </AnimatePresence>
+              </motion.div>
+            );
+          }
+        })}
+      </section>
+      <section className="routes">
+        {!isOpen && <motion.div className="h-1"></motion.div>}
+
         <AnimatePresence>
           {isOpen && (
-            <motion.h3 className="text-base font-bold m-2 mt-4 text-gray-500">
+            <motion.h3 className="text-base font-bold m-2 mt-1 text-gray-500">
               COLLECTIONS
             </motion.h3>
           )}
@@ -182,7 +243,7 @@ const Sidebar = ({ isOpen, setIsOpen, toggle }) => {
         })}
       </section>
       <section className="routes">
-        <AnimatePresence>{!isOpen && <motion.div className="h-6"></motion.div>}</AnimatePresence>
+        <AnimatePresence>{!isOpen && <motion.div className="h-2"></motion.div>}</AnimatePresence>
         <AnimatePresence>
           {isOpen && (
             <motion.h3 className="text-base font-bold m-2 text-gray-500">COMMUINITY</motion.h3>

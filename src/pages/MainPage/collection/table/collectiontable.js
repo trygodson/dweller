@@ -7,29 +7,50 @@ const CollectionTable = () => {
   const modalRef = useRef();
   const decorator = [
     {
-      id: 'fullName',
-      label: 'First Name',
-      accessor: 'fullName',
+      id: 'name',
+      label: 'Full Name',
+      accessor: 'name',
       Cell: (props) => <>{props.value}</>,
     },
     {
-      id: 'email',
-      label: 'Email',
-      accessor: 'email',
+      id: 'date',
+      label: 'Date Created',
+      accessor: 'date_created',
       Cell: (props) => <>{props.value}</>,
     },
     {
-      id: 'Mobile',
-      label: 'Mobile',
-      accessor: 'mobile',
+      id: 'amount',
+      label: 'Amout Generated',
+      accessor: 'amount_generated',
       Cell: (props) => <>{props.value}</>,
     },
 
     {
-      id: 'department',
-      label: 'department',
+      id: 'pending',
+      label: 'Pending Amount',
       disableSorting: true,
-      accessor: 'department',
+      accessor: 'pending_amount',
+      Cell: (props) => <div style={{ color: 'green' }}>{props.value}</div>,
+    },
+    {
+      id: 'allusers',
+      label: 'All Users',
+      disableSorting: true,
+      accessor: 'all_users',
+      Cell: (props) => <div style={{ color: 'green' }}>{props.value}</div>,
+    },
+    {
+      id: 'paidusers',
+      label: 'Paid Users',
+      disableSorting: true,
+      accessor: 'paid_users',
+      Cell: (props) => <div style={{ color: 'green' }}>{props.value}</div>,
+    },
+    {
+      id: 'unpaidusers',
+      label: 'UnPaid Users',
+      disableSorting: true,
+      accessor: 'unpaid_users',
       Cell: (props) => <div style={{ color: 'green' }}>{props.value}</div>,
     },
   ];
