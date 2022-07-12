@@ -162,6 +162,14 @@ export const community = async ({}) => {
     ],
   };
 };
+export const community2 = async ({}) => {
+  var id = await timeout(2000);
+  clearTimeout();
+
+  return {
+    data: [],
+  };
+};
 
 function timeout(delay) {
   return new Promise((res) => setTimeout(res, delay));

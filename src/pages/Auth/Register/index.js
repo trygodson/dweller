@@ -88,7 +88,7 @@ const Register = (props) => {
           <div className="w-2/5 h-full flex flex-col justify-between">
             <div className="" style={{ marginTop: '60px' }}>
               <p className="text-5xl mb-2 font-bold">Sign Up</p>
-              <Link to="/" className="text-md text-gray-600 font-semibold hover:text-black">
+              <Link to="/" className="text-md text-blue-800 font-semibold hover:text-black">
                 or Login to your Account
               </Link>
             </div>

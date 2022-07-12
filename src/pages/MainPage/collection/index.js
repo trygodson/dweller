@@ -45,7 +45,7 @@ const MyCollection = () => {
           <span className="ml-1 text-white text-base font-semibold ">Add a collection</span>
         </Link>
       </div>
-      <div className="w-6/6 mx-auto mt-10  bg-white rounded-md shadow p-5">
+      <div className="w-6/6 mx-auto mt-10  bg-white rounded-md shadow py-5">
         <CollectionTable />
       </div>
     </main>

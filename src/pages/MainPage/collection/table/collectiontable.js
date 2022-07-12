@@ -1,9 +1,12 @@
 import { useRef } from 'react';
 import { Row, Col } from 'reactstrap';
+import { GrView } from 'react-icons/gr';
 import RippleTable from '../../../../shared/components/table/table/TableCard';
 import { employees } from '../../../../shared/hooks/api/testService';
+import { useHistory } from 'react-router-dom';
 
-const CollectionTable = () => {
+const CollectionTable = (props) => {
+  const { push } = useHistory();
   const modalRef = useRef();
   const decorator = [
     {
@@ -52,6 +55,21 @@ const CollectionTable = () => {
       disableSorting: true,
       accessor: 'unpaid_users',
       Cell: (props) => <div style={{ color: 'green' }}>{props.value}</div>,
+    },
+
+    {
+      id: 'action',
+      label: 'View',
+      disableSorting: true,
+      accessor: 'name',
+      Cell: (props) => (
+        <div
+          className="cursor-pointer"
+          onClick={() => push('/app/view-collection', { id: props.value })}
+        >
+          <GrView color="#0000ff" size={21} />
+        </div>
+      ),
     },
   ];
 

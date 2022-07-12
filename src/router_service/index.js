@@ -6,6 +6,7 @@ const AdminDashboard = lazy(() => import('../pages/MainPage/dashboard/Admin'));
 const MyProperties = lazy(() => import('../pages/MainPage/properties/Admin/MyProperties'));
 const MyCollection = lazy(() => import('../pages/MainPage/collection'));
 const AddCollection = lazy(() => import('../pages/MainPage/collection/addcollection'));
+const ViewCollection = lazy(() => import('../pages/MainPage/collection/viewcollection'));
 const ProfileForm = lazy(() => import('../pages/profile/index'));
 
 export default [
@@ -34,6 +35,11 @@ export default [
   {
     path: 'add-collection',
     component: AddCollection,
+    // permission: [],
+  },
+  {
+    path: 'view-collection',
+    component: ViewCollection,
     // permission: [],
   },
   // {

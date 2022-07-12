@@ -132,7 +132,7 @@ const Login = (props) => {
           <div className="w-2/5 h-full flex flex-col justify-between">
             <div className="" style={{ marginTop: '100px' }}>
               <p className="text-5xl mb-2 font-bold">Sign in</p>
-              <Link to="/signup" className="text-md text-gray-600 font-semibold hover:text-black">
+              <Link to="/signup" className="text-md text-blue-800 font-semibold hover:text-black">
                 or Create an Account
               </Link>
             </div>
@@ -183,7 +183,7 @@ const Login = (props) => {
                             <span className="mb-0 text-xs font-semibold">Remeber Me</span>
                           </div>
                           <div>
-                            <span className="font-bold text-sm" style={{ color: '#2c91f7' }}>
+                            <span className="font-bold text-sm" style={{ color: 'gray' }}>
                               Forgot Password
                             </span>
                           </div>

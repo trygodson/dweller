@@ -2,8 +2,9 @@ import { useState } from 'react';
 import AsyncInput from 'react-select/async';
 import { FcFullTrash } from 'react-icons/fc';
 import InputField, { AnotherInputField } from '../../../../shared/components/customforminput';
-import { community } from '../../../../shared/hooks/api/testService';
+import { community, community2 } from '../../../../shared/hooks/api/testService';
 import { emptyicon } from '../../../../Entryfile/imagepath';
+import { Button2 } from '../../../../shared/components/button';
 
 const customStyles = {
   option: (provided, state) => {
@@ -15,6 +16,16 @@ const customStyles = {
       borderBottom: '1px dotted pink',
       color: state.isSelected ? 'red' : 'blue',
       padding: 20,
+    };
+  },
+  noOptionsMessage: (provided, state) => {
+    return {
+      ...provided,
+      // color: '#1a2b46',
+      // fontSize: '15px',
+      // borderBottom: '1px dotted pink',
+      // color: state.isSelected ? 'red' : 'blue',
+      // padding: 20,
     };
   },
   menu: (provided, state) => {
@@ -151,6 +162,9 @@ const AddCollection = () => {
             </div>
             <div className="my-1">
               <InputField inputType="input" type="text" label={'Payment Location'} placeholder="" />
+            </div>
+            <div className="flex justify-center">
+              <Button2>Submit Collection</Button2>
             </div>
           </div>
         </div>

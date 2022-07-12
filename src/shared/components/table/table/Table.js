@@ -109,7 +109,11 @@ function RTable({
           >
             <thead style={{ borderBottom: '' }}>
               {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()} style={{ width: '100%' }}>
+                <tr
+                  {...headerGroup.getHeaderGroupProps()}
+                  style={{ width: '100%' }}
+                  className="px-5  bg-gray-100"
+                >
                   {!loading ? (
                     headerGroup.headers.map((column, columnIndex) => (
                       <th
@@ -118,12 +122,14 @@ function RTable({
                         className={
                           column.isSorted
                             ? column.isSortedDesc
-                              ? 'sorted-desc '
-                              : 'sorted-asc '
-                            : ''
+                              ? 'sorted-desc py-3'
+                              : 'sorted-asc py-3'
+                            : 'py-3'
                         }
                       >
-                        <span style={{}}>{column.render('label')}</span>
+                        <span className="text-gray-700" style={{}}>
+                          {column.render('label')}
+                        </span>
                       </th>
                     ))
                   ) : (
@@ -146,7 +152,8 @@ function RTable({
                     <tr
                       {...row.getRowProps()}
                       onClick={() => !hasActionMenu && onView(data[rowIndex])}
-                      style={{ cursor: 'pointer', width: '100%' }}
+                      style={{ width: '100%' }}
+                      className="border-b border-gray-200 my-1 px-3"
                     >
                       {!loading ? (
                         row.cells.map((cell, cellIndex) => (
