@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import AsyncInput from 'react-select/async';
-import { FcFullTrash } from 'react-icons/fc';
+import { FcFullTrash, Fc } from 'react-icons/fc';
+import { GrClose } from 'react-icons/gr';
 import InputField, { AnotherInputField } from '../../../../shared/components/customforminput';
 import { community, community2 } from '../../../../shared/hooks/api/testService';
 import { emptyicon } from '../../../../Entryfile/imagepath';
 import { Button2 } from '../../../../shared/components/button';
+import BreadCrumb from '../../../../shared/components/breadcrumb';
+import DModal from '../../../../shared/components/dmodal';
 
 const customStyles = {
   option: (provided, state) => {
@@ -65,11 +68,15 @@ const customStyles = {
   },
 };
 
-const AddCollection = () => {
+// Modal.setAppElement('#yourAppElement');
+
+const AddCollection = ({ location }) => {
   const [collectionList, setCollectionList] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+
   const loadDoctoOptions = async (text, callback) => {
     // const res = await axios.get(`${BASE_URL}${ApiEndpoints.SPECIALIZATION}?search=${text}`);
-    const res = await community({});
+    const res = await community2({});
     // const json = res.json();
     callback(
       res.data.map((val) => ({
@@ -136,8 +143,13 @@ const AddCollection = () => {
     );
   };
 
+  const theOption = (props) => {
+    return <h3>There's Noting Here</h3>;
+  };
   return (
     <main className="">
+      <BreadCrumb location={location} />
+
       <div className="grid grid-cols-12 gap-6">
         <div className="col-span-4">
           <div className="w-full shadow bg-white py-7 px-5 rounded-md">
@@ -191,6 +203,20 @@ const AddCollection = () => {
                   styles={customStyles}
                   loadOptions={loadDoctoOptions}
                   touchUi={true}
+                  components={{
+                    Option: theOption,
+                  }}
+                  noOptionsMessage={({ input }) => (
+                    <h3>
+                      Nothing here{' '}
+                      <span
+                        className="font-bold text-indigo-900 cursor-pointer"
+                        onClick={() => setModalOpen(true)}
+                      >
+                        Add Now
+                      </span>
+                    </h3>
+                  )}
                   onBlur={(event) => event.preventDefault()}
                   placeholder="Search for community"
                   onChange={(val) => selectDoctor(val)}
@@ -203,6 +229,32 @@ const AddCollection = () => {
           </div>
         </div>
       </div>
+      <DModal modalOpen={modalOpen} setModalOpen={setModalOpen}>
+        <div
+          className="rounded-full absolute cursor-pointer shadow p-1  top-0 right-0"
+          onClick={() => setModalOpen(false)}
+          // style={{ top: '-4px', right: '-2px', zIndex: 3 }}
+        >
+          <GrClose color="#FF0000" />
+        </div>
+        <div className="w-80 bg-white rounded-md ">
+          <div className="my-1">
+            <InputField inputType="input" type="text" label={'Name'} placeholder="" />
+          </div>
+          <div className="my-1">
+            <InputField inputType="input" type="text" label={'Phone Number'} placeholder="" />
+          </div>
+          <div className="my-1">
+            <InputField inputType="input" type="email" label={'Email'} placeholder="" />
+          </div>
+          <div className="my-1">
+            <InputField inputType="input" type="text" label={'Commuinity'} placeholder="" />
+          </div>
+          <div className="flex justify-center">
+            <Button2 classes={'bg-blue-800'}>submit</Button2>
+          </div>
+        </div>
+      </DModal>
     </main>
   );
 };

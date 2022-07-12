@@ -2,10 +2,12 @@ import { AnotherInputField } from '../../../shared/components/customforminput';
 import CollectionTable from './table/collectiontable';
 import { BsPlus } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import BreadCrumb from '../../../shared/components/breadcrumb';
 
-const MyCollection = () => {
+const MyCollection = ({ location }) => {
   return (
     <main className="w-full pt-10">
+      <BreadCrumb location={location} />
       <div className="flex justify-between">
         <div>
           <div className="flex">
