@@ -40,7 +40,7 @@ const AddCollection = ({ location }) => {
 
   const loadOptions = async (text, callback) => {
     // const res = await axios.get(`${BASE_URL}${ApiEndpoints.SPECIALIZATION}?search=${text}`);
-    const res = await community2({});
+    const res = await community({});
     // const json = res.json();
     callback(
       res.data.map((val) => ({
