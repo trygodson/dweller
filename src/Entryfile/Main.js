@@ -9,21 +9,21 @@ const MainApp = (props) => {
   // const { pathname } = useLocation();
 
   return (
-    <Suspense fallback={<Loading />}>
-      <Switch>
-        {routes.map((route, i) =>
-          route.guarded ? <RouteGuard key={i} {...route} /> : <Route key={i} {...route} />,
-        )}
-        <Redirect
-          to={{
-            pathname: '/',
-            state: {
-              from: '/',
-            },
-          }}
-        ></Redirect>
-      </Switch>
-    </Suspense>
+    // <Suspense fallback={<Loading />} >
+    <Switch>
+      {routes.map((route, i) =>
+        route.guarded ? <RouteGuard key={i} {...route} /> : <Route key={i} {...route} />,
+      )}
+      <Redirect
+        to={{
+          pathname: '/',
+          state: {
+            from: '/',
+          },
+        }}
+      ></Redirect>
+    </Switch>
+    // </Suspense>
   );
 };
 

@@ -1,12 +1,14 @@
 import { lazy } from 'react';
+import Login from '../pages/Auth/Login/index';
+import Register from '../pages/Auth/Register/index';
+import DefaultLayout from '../shared/navs/DefaultLayout';
 
-const Login = lazy(() => import('../pages/Auth/Login/index'));
-const Register = lazy(() => import('../pages/Auth/Register/index'));
-const Otp = lazy(() => import('../pages/Auth/otp/index'));
-const ProfileForm = lazy(() => import('../pages/profile/index'));
+// const Login = lazy(() => import('../pages/Auth/Login/index'));
+// const Register = lazy(() => import('../pages/Auth/Register/index'));
+// const Otp = lazy(() => import('../pages/Auth/otp/index'));
 // const ForgotPassword = lazy(() => import("../pages/Auth/ForgotPassword"));
 // const OTP = lazy(() => import("../pages/Auth/VerifyOtp"));
-const DefaultLayout = lazy(() => import('../shared/navs/DefaultLayout'));
+// const DefaultLayout = lazy(() => import('../shared/navs/DefaultLayout'));
 // const Error = lazy(() => import("../pages/MainPage/Error/Error"));
 
 const routes = [
@@ -21,16 +23,11 @@ const routes = [
     component: Register,
     guarded: false,
   },
-  {
-    path: '/otp',
-    component: Otp,
-    guarded: false,
-  },
-  {
-    path: '/profile-form',
-    component: ProfileForm,
-    guarded: false,
-  },
+  // {
+  //   path: '/otp',
+  //   component: Otp,
+  //   guarded: false,
+  // },
   // {
   //   path: "/verify-otp",
   //   component: OTP,
