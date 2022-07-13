@@ -50,12 +50,12 @@ Button.defaultProps = {
 
 export const Button2 = ({ children, classes, ...props }) => {
   return (
-    <div
+    <button
       className={`bg-appcolor-600 cursor-pointer hover:bg-appcolor-900 py-2 text-white rounded-md px-4 ${classes}`}
       {...props}
     >
       {children}
-    </div>
+    </button>
   );
 };
 

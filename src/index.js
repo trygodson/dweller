@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Main from './Entryfile/Main';
 import './index.css';
 import { AuthProvider } from './shared/context/useAuthContext';
+import Modal from 'react-modal';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,6 +16,7 @@ const queryClient = new QueryClient({
     },
   },
 });
+Modal.setAppElement('#root');
 
 ReactDOM.render(
   <BrowserRouter>
