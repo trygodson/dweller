@@ -170,6 +170,45 @@ export const community2 = async ({}) => {
     data: [],
   };
 };
+export const communityTable = async ({}) => {
+  var id = await timeout(2000);
+  clearTimeout();
+
+  return {
+    data: [
+      {
+        name: 'Kubwa Community',
+        users: '54',
+        type: 'Open',
+      },
+      {
+        name: 'Ushafa Community',
+        users: '222',
+        type: 'Open',
+      },
+      {
+        name: 'Lugbe Community',
+        users: '382',
+        type: 'Estate',
+      },
+      {
+        name: 'Jabi Community',
+        users: '83',
+        type: 'Compound',
+      },
+      {
+        name: 'Gwagalada Community',
+        users: '112',
+        type: 'Estate',
+      },
+      {
+        name: 'Jabi-Lake Community',
+        users: '372',
+        type: 'Open',
+      },
+    ],
+  };
+};
 
 function timeout(delay) {
   return new Promise((res) => setTimeout(res, delay));

@@ -46,7 +46,7 @@ export const MenuList = [
   {
     id: 'community',
     label: 'Community',
-    to: '/app/properties',
+    to: '/app/communities',
     icon: <i className="fi fi-rr-box text-xl"></i>,
     title: 'community',
   },

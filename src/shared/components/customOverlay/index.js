@@ -3,7 +3,7 @@ import { Circles, ThreeCircles } from 'react-loader-spinner';
 
 const CustomOverlay = ({ children, active, ...props }) => {
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full grow h-full">
       {!active && children}
       <div
         className={` absolute inset-0  flex justify-center items-center transition-all ${

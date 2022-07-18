@@ -5,8 +5,11 @@ const DwellerPayDashboard = lazy(() => import('../pages/MainPage/dashboard/dwell
 const AdminDashboard = lazy(() => import('../pages/MainPage/dashboard/Admin'));
 const MyProperties = lazy(() => import('../pages/MainPage/properties/Admin/MyProperties'));
 const MyCollection = lazy(() => import('../pages/MainPage/collection'));
+const Community = lazy(() => import('../pages/MainPage/community'));
 const AddCollection = lazy(() => import('../pages/MainPage/collection/addcollection'));
+const AddCommunity = lazy(() => import('../pages/MainPage/community/addcommunity'));
 const ViewCollection = lazy(() => import('../pages/MainPage/collection/viewcollection'));
+const ViewCommunity = lazy(() => import('../pages/MainPage/community/viewcommunity'));
 const ProfileForm = lazy(() => import('../pages/profile/index'));
 
 export default [
@@ -40,6 +43,21 @@ export default [
   {
     path: 'view-collection',
     component: ViewCollection,
+    // permission: [],
+  },
+  {
+    path: 'view-community',
+    component: ViewCommunity,
+    // permission: [],
+  },
+  {
+    path: 'communities',
+    component: Community,
+    // permission: [],
+  },
+  {
+    path: 'add-community',
+    component: AddCommunity,
     // permission: [],
   },
   // {

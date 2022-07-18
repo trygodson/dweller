@@ -59,7 +59,12 @@ const customStyles = {
   },
 };
 
-const CustomSelect = ({ onChangeFunction, loadOptions, setModalOpen }) => {
+const CustomSelect = ({
+  onChangeFunction,
+  loadOptions,
+  setModalOpen,
+  placeholder = 'Search for community',
+}) => {
   return (
     <AsyncInput
       styles={customStyles}
@@ -77,7 +82,7 @@ const CustomSelect = ({ onChangeFunction, loadOptions, setModalOpen }) => {
         </h3>
       )}
       onBlur={(event) => event.preventDefault()}
-      placeholder="Search for community"
+      placeholder={placeholder}
       onChange={(val) => onChangeFunction(val)}
     />
   );

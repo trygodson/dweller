@@ -4,28 +4,19 @@ import { community } from '../../../../shared/hooks/api/testService';
 import { emptyicon } from '../../../../Entryfile/imagepath';
 import CustomOverlay from '../../../../shared/components/customOverlay';
 import { Button2 } from '../../../../shared/components/button';
+import styled, { keyframes } from 'styled-components';
+import { fadeIn } from 'react-animations';
+import UnPaidCollectionMembers from './paid';
+import PaidCollectionMembers from './unpaid';
+
+const InfoAnimation = keyframes`${fadeIn}`;
+
+const FadeDiv = styled.div`
+  animation: 0.24s ${InfoAnimation};
+`;
 
 const ViewCollection = (props) => {
-  console.log(props);
-  const [collectionList, setCollectionList] = useState([]);
-
-  const [loading, setLoading] = useState(true);
-  const loadTable = async (text, callback) => {
-    setLoading(true);
-    // const res = await axios.get(`${BASE_URL}${ApiEndpoints.SPECIALIZATION}?search=${text}`);
-    const res = await community({});
-    setCollectionList(res.data);
-    setLoading(false);
-  };
-
-  useEffect(async () => {
-    await loadTable();
-  }, []);
-
-  const deleteCollection = (i) => {
-    const thelist = collectionList.filter((item) => item.name !== i.name);
-    setCollectionList([...thelist]);
-  };
+  const [openAction, setOpenAction] = useState('paid');
 
   const nocollectionAdded = () => {
     return (
@@ -36,35 +27,6 @@ const ViewCollection = (props) => {
           This shows expected dwellers for a particular payment collection
         </span>
         <span className="text-sm text-indigo-800">Add at least one Dweller</span>
-      </div>
-    );
-  };
-
-  const TheCollectionLIst = () => {
-    return (
-      <div className="w-full h-full">
-        <table class="w-full mt-10 table-auto" style={{ overflowY: 'auto' }}>
-          <thead>
-            <tr>
-              <th class="bg-gray-100 py-2 px-3 mx-1 text-left">Name</th>
-              <th class="bg-gray-100 py-2 px-3 mx-1 text-left">Phone</th>
-              <th class="bg-gray-100 py-2 px-3 mx-1 text-left">Email</th>
-              <th class="bg-gray-100 py-2 px-3 mx-1 text-left">Commuity</th>
-            </tr>
-          </thead>
-          <tbody>
-            {collectionList.map((item, i) => {
-              return (
-                <tr key={i}>
-                  <td className="py-3 px-2 ">{item.name}</td>
-                  <td className="py-3 px-2 ">{item.phone}</td>
-                  <td className="py-3 px-2 text-base">{item.email}</td>
-                  <td className="py-3 px-2 text-base">{item.community}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
       </div>
     );
   };
@@ -116,10 +78,49 @@ const ViewCollection = (props) => {
             <div className="mb-5">
               <h3 className="font-serif text-xl">Collection Members</h3>
             </div>
+            <div className="flex w-full justify-center items-center">
+              <div
+                className="relative ml-16 my-26  cursor-pointer "
+                onClick={() => setOpenAction('paid')}
+              >
+                <span className="font-semibold text-lg hover:text-appcolor-500">Paid</span>
+                <div
+                  style={{ height: '2px' }}
+                  className={`${
+                    openAction != 'paid' && 'w-0'
+                  } absolute bg-black left-0 bottom-0 mt-10 transition-all duration-300 ${
+                    openAction == 'paid' && 'w-full'
+                  }`}
+                ></div>
+              </div>
+              <div
+                className="relative ml-16 my-26 cursor-pointer "
+                onClick={() => setOpenAction('unpaid')}
+              >
+                <span className="font-semibold text-lg hover:text-appcolor-500">Unpaid</span>
+                <div
+                  style={{ height: '2px' }}
+                  className={`${
+                    openAction != 'unpaid' && 'w-0'
+                  } absolute bg-black left-0 bottom-0 mt-10 transition-all duration-300 ${
+                    openAction == 'unpaid' && 'w-full'
+                  }`}
+                ></div>
+              </div>
+            </div>
+            {openAction === 'paid' && (
+              <FadeDiv className="flex flex-col">
+                {' '}
+                <PaidCollectionMembers />
+              </FadeDiv>
+            )}
+            {openAction === 'unpaid' && (
+              <FadeDiv>
+                {' '}
+                <UnPaidCollectionMembers />
+              </FadeDiv>
+            )}
 
-            <CustomOverlay active={loading}>
-              <TheCollectionLIst />
-            </CustomOverlay>
             {/* <div className="h-full w-full ">
 
             </div> */}

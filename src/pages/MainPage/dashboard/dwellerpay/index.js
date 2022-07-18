@@ -118,7 +118,6 @@ const DwellerPayDashboard = () => {
               </div>
             </div>
           </div>
-          <h3 className="text-lg font-bold my-4">Recent Activities</h3>
           <RecentTransaction />
         </div>
       </div>
