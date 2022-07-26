@@ -28,6 +28,7 @@ import { Table } from 'reactstrap';
 import { customModalStyle } from '../../common/modal_style';
 import { Colxx, LoaderStyle } from '../../common/rBootstrap';
 import RTable from './Table';
+import DModal from '../../dmodal';
 const theme = 'light';
 const RippleTable = ({
   title = 'Recent Transactions',
@@ -66,6 +67,7 @@ const RippleTable = ({
   handleViewMore,
   handleAddNew,
   handleShowStat,
+  modalComponent: ModalComponent,
   addNewText = 'Add New',
   idAccessor = 'id',
   docId,
@@ -161,6 +163,15 @@ const RippleTable = ({
   const handleStat = () => {
     setStatModal(true);
   };
+
+  const color = [
+    'bg-emerald-100 text-emerald-600',
+    'bg-cyan-100 text-cyan-600',
+    'bg-indigo-100 text-indigo-600',
+    'bg-fuchsia-100 text-fuchsia-600',
+    'bg-rose-100 text-rose-600',
+  ];
+
   return (
     <div className={`table `}>
       {/* <div className="container"> */}
@@ -311,36 +322,22 @@ const RippleTable = ({
                 loading={isLoading}
               />
             }
-            <Modal
-              isOpen={modalBasic}
-              toggle={() => setModalBasic(!modalBasic)}
-              size="lg"
-              aria-labelledby="contained-modal-title-vcenter"
-            >
-              <ModalHeader>Details</ModalHeader>
-              <ModalBody>
-                <Table responsive striped className="new up">
-                  <thead>
-                    <th>Item</th>
-                    <th>Values</th>
-                  </thead>
-                  <tbody>
-                    {Object.keys(viewData).map((keyName, i) => (
-                      <tr key={i}>
-                        <td>{keyName}</td>
-
-                        <td>{viewData[keyName]}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              </ModalBody>
-              <ModalFooter>
+            {ModalComponent && (
+              <DModal
+                setModalOpen={setModalBasic}
+                modalOpen={modalBasic}
+                // toggle={() => setModalBasic(!modalBasic)}
+                // size="lg"
+                // aria-labelledby="contained-modal-title-vcenter"
+              >
+                {<ModalComponent viewData={viewData} />}
+                {/* <ModalFooter>
                 <Button color="secondary" onClick={() => setModalBasic(false)}>
                   Okay
                 </Button>
-              </ModalFooter>
-            </Modal>
+              </ModalFooter> */}
+              </DModal>
+            )}
           </CardBody>
 
           {/* <Modal2

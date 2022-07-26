@@ -162,6 +162,58 @@ export const community = async ({}) => {
     ],
   };
 };
+export const staffs = async ({}) => {
+  var id = await timeout(2000);
+  clearTimeout();
+
+  return {
+    data: [
+      {
+        name: 'Emmamuel song',
+        email: 'test@email.com',
+        phone: '+23490365656',
+        password: 'dskjnknjsnkjkjkj',
+        communities: ['Deeja community', 'Sefas community', 'Lugbe community'],
+      },
+      {
+        name: 'Emmamuel song',
+        email: 'test@email.com',
+        phone: '+23490365656',
+        password: 'dskjnknjsnkjkjkj',
+        communities: ['Deeja community', 'Sefas community', 'Lugbe community'],
+      },
+      {
+        name: 'Emmamuel song',
+        email: 'test@email.com',
+        phone: '+23490365656',
+        password: 'dskjnknjsnkjkjkj',
+        communities: ['Deeja community', 'Sefas community', 'Lugbe community'],
+      },
+      {
+        name: 'Emmamuel song',
+        email: 'test@email.com',
+        phone: '+23490365656',
+        password: 'dskjnknjsnkjkjkj',
+        communities: ['Deeja community', 'Sefas community', 'Lugbe community'],
+      },
+      {
+        name: 'Emmamuel song',
+        email: 'test@email.com',
+        phone: '+23490365656',
+        password: 'dskjnknjsnkjkjkj',
+        communities: ['Deeja community', 'Sefas community', 'Lugbe community'],
+      },
+      {
+        name: 'Emmamuel song',
+        email: 'test@email.com',
+        phone: '+23490365656',
+        password: 'dskjnknjsnkjkjkj',
+        communities: ['Deeja community', 'Sefas community', 'Lugbe community'],
+      },
+    ],
+  };
+};
+
 export const community2 = async ({}) => {
   var id = await timeout(2000);
   clearTimeout();

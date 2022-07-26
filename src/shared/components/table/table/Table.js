@@ -27,6 +27,7 @@ import '../datatables.scss';
 import '../table.scss';
 import { BsArrowCounterclockwise, BsPlus, BsSearch } from 'react-icons/bs';
 import Skeleton from 'react-loading-skeleton';
+import { GrEdit, GrView } from 'react-icons/gr';
 
 function RTable({
   columns,
@@ -140,6 +141,16 @@ function RTable({
                       // highlightColor="#297d4e"
                     />
                   )}
+                  {!loading ? (
+                    !hasActionMenu && <th>Actions</th>
+                  ) : (
+                    <Skeleton
+                      height={40}
+                      width="auto"
+                      // baseColor="#297d4e"
+                      // highlightColor="#297d4e"
+                    />
+                  )}
                 </tr>
               ))}
             </thead>
@@ -178,18 +189,33 @@ function RTable({
                             //isOpen={false}
                             //toggle={() => setDropdownSplitOpen(!dropdownSplitOpen)}
                           >
-                            <div className="btn btn-primary btn-lg pl-4 pr-0">Action</div>
-                            <DropdownToggle
+                            {showEdit && (
+                              <div className="flex w-full justify-center items-center">
+                                <div
+                                  className="cursor-pointer bg-green-100 hover:bg-green-300 w-1/2 flex justify-center items-center rounded-md px-2 py-1"
+                                  onClick={() => onEdit(data[rowIndex])}
+                                >
+                                  <GrEdit color="#0000ff" size={21} />
+                                </div>
+                              </div>
+                            )}
+
+                            {/* <DropdownToggle
                               size="xs"
                               caret
                               color="primary"
                               className="dropdown-toggle-split btn-lg"
-                            />
-                            <DropdownMenu right>
+                            /> */}
+                            {/* <DropdownMenu right>
                               {showView && (
-                                <DropdownItem onClick={() => onView(data[rowIndex])}>
-                                  View
-                                </DropdownItem>
+                                <div className="flex w-full justify-center items-center">
+                                  <div
+                                    className="cursor-pointer bg-green-100 hover:bg-green-300 w-1/2 flex justify-center items-center rounded-md px-2 py-1"
+                                    onClick={() => onView(data[rowIndex])}
+                                  >
+                                    <GrView color="#0000ff" size={21} />
+                                  </div>
+                                </div>
                               )}
                               {showEdit && (
                                 <DropdownItem onClick={() => onEdit(data[rowIndex])}>
@@ -201,7 +227,7 @@ function RTable({
                                   Delete
                                 </DropdownItem>
                               )}
-                            </DropdownMenu>
+                            </DropdownMenu> */}
                           </UncontrolledButtonDropdown>
                         </td>
                       )}

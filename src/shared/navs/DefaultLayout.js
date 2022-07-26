@@ -48,20 +48,20 @@ const DefaultLayout = (props) => {
 
         <AnimatePresence>
           <motion.div className="min-full min-h-max px-6 py-2  mt-1">
-            <Suspense fallback={<Loading />}>
-              <Switch>
-                {routerService &&
-                  routerService.map((route, key) => (
-                    <PermissionedRoute
-                      key={key}
-                      path={`${match.url}/${route.path}`}
-                      component={route.component}
-                      permissions={route.permission}
-                    />
-                  ))}
-                <Redirect from={'/'} to={'/dashboard'}></Redirect>
-              </Switch>
-            </Suspense>
+            {/* <Suspense fallback={<Loading />}> */}
+            <Switch>
+              {routerService &&
+                routerService.map((route, key) => (
+                  <PermissionedRoute
+                    key={key}
+                    path={`${match.url}/${route.path}`}
+                    component={route.component}
+                    permissions={route.permission}
+                  />
+                ))}
+              <Redirect from={'/'} to={'/dashboard'}></Redirect>
+            </Switch>
+            {/* </Suspense> */}
           </motion.div>
         </AnimatePresence>
       </div>

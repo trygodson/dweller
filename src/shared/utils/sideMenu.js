@@ -50,6 +50,13 @@ export const MenuList = [
     icon: <i className="fi fi-rr-box text-xl"></i>,
     title: 'community',
   },
+  {
+    id: 'users',
+    label: 'Manage Staffs',
+    to: '/app/manage-staffs',
+    icon: <i className="fi fi-rr-settings-sliders text-xl"></i>,
+    title: 'community',
+  },
 
   {
     id: 'adddwellers',
